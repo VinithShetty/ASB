@@ -1,0 +1,278 @@
+<!-- 
+    ALTERNATIVE WEB3FORMS IMPLEMENTATION
+    
+    This file shows alternative ways to use Web3Forms
+    You don't need this file - it's just for reference
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web3Forms - Alternative Methods</title>
+</head>
+<body>
+
+<!-- ===================================== -->
+<!-- METHOD 1: Simple HTML Form (No JS)   -->
+<!-- ===================================== -->
+<h2>Method 1: Pure HTML (No JavaScript Required)</h2>
+<p>Form redirects to Web3Forms success page after submission</p>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Your Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <!-- Email recipient (optional if set in dashboard) -->
+    <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html">
+    
+    <!-- Form fields -->
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number">
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- ===================================== -->
+<!-- METHOD 2: With Honeypot Spam Protection -->
+<!-- ===================================== -->
+<h2>Method 2: With Honeypot (Recommended)</h2>
+<p>Adds invisible field to catch spam bots</p>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <!-- Honeypot field (hidden from users, catches bots) -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- ===================================== -->
+<!-- METHOD 3: AJAX with Inline JavaScript -->
+<!-- ===================================== -->
+<h2>Method 3: AJAX Submission (Used in Your Site)</h2>
+
+<form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <div id="result"></div>
+</form>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    
+    const button = this.querySelector('button');
+    button.textContent = "Sending...";
+    button.disabled = true;
+    
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            document.getElementById('result').innerHTML = "✅ Message sent successfully!";
+            this.reset();
+        } else {
+            document.getElementById('result').innerHTML = "❌ Error: " + data.message;
+        }
+    } catch (error) {
+        document.getElementById('result').innerHTML = "❌ Something went wrong!";
+    }
+    
+    button.textContent = "Send Message";
+    button.disabled = false;
+});
+</script>
+
+<!-- ===================================== -->
+<!-- METHOD 4: With reCAPTCHA v3 -->
+<!-- ===================================== -->
+<h2>Method 4: With Google reCAPTCHA v3</h2>
+<p>Add this in the head section:</p>
+<pre>
+&lt;script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"&gt;&lt;/script&gt;
+</pre>
+
+<form id="recaptchaForm">
+    <input type="text" name="name" required>
+    <input type="email" name="email" required>
+    <textarea name="message" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+
+<script>
+document.getElementById('recaptchaForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Get reCAPTCHA token
+    const token = await grecaptcha.execute('YOUR_SITE_KEY', {action: 'submit'});
+    
+    const formData = new FormData(this);
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("recaptcha_response", token);
+    
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+    
+    const data = await response.json();
+    console.log(data);
+});
+</script>
+
+<!-- ===================================== -->
+<!-- METHOD 5: With File Upload -->
+<!-- ===================================== -->
+<h2>Method 5: With File Upload (Pro Plan Only)</h2>
+
+<form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <input type="text" name="name" required>
+    <input type="email" name="email" required>
+    <textarea name="message" required></textarea>
+    
+    <!-- File upload field -->
+    <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- ===================================== -->
+<!-- METHOD 6: Custom Email Template -->
+<!-- ===================================== -->
+<h2>Method 6: Custom Email Fields</h2>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <!-- Custom email metadata -->
+    <input type="hidden" name="from_name" value="ASB Engineering Website">
+    <input type="hidden" name="subject" value="New Contact Form Submission">
+    
+    <!-- CC and BCC -->
+    <input type="hidden" name="cc" value="manager@yourdomain.com">
+    <input type="hidden" name="bcc" value="backup@yourdomain.com">
+    
+    <!-- Form fields -->
+    <input type="text" name="name" required>
+    <input type="email" name="email" required>
+    <input type="text" name="company" placeholder="Company Name">
+    <input type="text" name="phone" placeholder="Phone">
+    <textarea name="message" required></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+<!-- ===================================== -->
+<!-- CONFIGURATION EXAMPLES -->
+<!-- ===================================== -->
+
+<h2>Configuration Options</h2>
+
+<h3>1. Custom Success/Error Messages</h3>
+<pre>
+formData.append("redirect", "https://yourdomain.com/thank-you.html");
+</pre>
+
+<h3>2. Email To (if not set in dashboard)</h3>
+<pre>
+formData.append("email_to", "asb.eng.services@gmail.com");
+</pre>
+
+<h3>3. Reply-To Email</h3>
+<pre>
+formData.append("replyto", formData.get("email"));
+</pre>
+
+<h3>4. Custom Subject with User Input</h3>
+<pre>
+formData.append("subject", "New Quote Request - " + formData.get("subject"));
+</pre>
+
+<h3>5. Add Hidden Fields for Tracking</h3>
+<pre>
+formData.append("page_url", window.location.href);
+formData.append("page_title", document.title);
+formData.append("user_agent", navigator.userAgent);
+</pre>
+
+<!-- ===================================== -->
+<!-- WEBHOOK INTEGRATION -->
+<!-- ===================================== -->
+
+<h2>Webhook Integration (Advanced)</h2>
+<p>Configure in Web3Forms dashboard to send data to your server:</p>
+
+<pre>
+// Example webhook payload received by your server
+{
+  "access_key": "your-access-key",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "+91 1234567890",
+  "subject": "Quote Request",
+  "message": "I need information about...",
+  "ip_address": "123.456.789.0",
+  "user_agent": "Mozilla/5.0...",
+  "timestamp": "2025-01-15T10:30:00Z"
+}
+</pre>
+
+<h3>Node.js Webhook Handler Example:</h3>
+<pre>
+const express = require('express');
+const app = express();
+
+app.post('/webhook', express.json(), (req, res) => {
+    const { name, email, message } = req.body;
+    
+    // Process the form submission
+    console.log('New submission:', name, email);
+    
+    // Store in database
+    // Send to CRM
+    // Trigger notifications
+    
+    res.json({ success: true });
+});
+
+app.listen(3000);
+</pre>
+
+<!-- ===================================== -->
+<!-- TESTING -->
+<!-- ===================================== -->
+
+<h2>Testing Checklist</h2>
+<ul>
+    <li>✅ Form submits without errors</li>
+    <li>✅ Email received at asb.eng.services@gmail.com</li>
+    <li>✅ All form fields appear in email</li>
+    <li>✅ Reply-to email is set correctly</li>
+    <li>✅ Success message displays properly</li>
+    <li>✅ Form resets after submission</li>
+    <li>✅ Honeypot catches spam bots</li>
+    <li>✅ Mobile responsive design works</li>
+</ul>
+
+</body>
+</html>

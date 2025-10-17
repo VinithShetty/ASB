@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="ASB Engineering Services">
+	<!-- Page Title -->
+	<title>ASB Engineering Services</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/asb-logo.png">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="css/slicknav.min.css" rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<!-- Font Awesome Icon Css-->
+	<link href="css/all.css" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="css/animate.css" rel="stylesheet">
+	<!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="css/mousecursor.css">
+	<!-- Main Custom Css -->
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+
+    <!-- Page-scoped tweaks: increase spacing between service-entry headings and their lists -->
+    <style>
+        /* Preserve existing section-title spacing */
+        .page-service-single .section-title { margin-bottom: 1.5rem; }
+        .page-service-single .section-title h2 { margin-bottom: 0.5rem; }
+
+        /* Stronger, page-scoped rules for the service entries (target the h3 then the following ul)
+           Use high specificity and !important to override utility/theme rules that may be collapsing space. */
+        .page-service-single .service-single-content .service-entry h3.text-anime-style-3 { margin-bottom: 0.9rem !important; }
+        .page-service-single .service-single-content .service-entry > ul { margin-top: 0.9rem !important; }
+        .page-service-single .service-single-content .service-entry > ul li { padding-top: 0.35rem; }
+
+        /* First service-entry sometimes contains the long Infrastructure list — give it a touch more breathing room */
+        .page-service-single .service-single-content .service-entry:first-of-type > h3 + ul { margin-top: 1.1rem !important; }
+
+        /* Mobile: slightly reduce spacing so content doesn't feel too sparse on small screens */
+        @media (max-width: 576px) {
+            .page-service-single .service-single-content .service-entry h3.text-anime-style-3 { margin-bottom: 0.6rem !important; }
+            .page-service-single .service-single-content .service-entry > ul { margin-top: 0.6rem !important; }
+        }
+
+        /* Nudge the tick/check pseudo-element down slightly on this page so it vertically aligns with the list text */
+        .page-service-single .service-single-content .service-entry ul li:before {
+            top: 8px !important;
+        }
+    
+        /* Enhanced Product Category Styles */
+        .product-categories-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+
+        .section-subtitle {
+            color: #5eaedc;
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-category-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product-category-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-category-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(27, 116, 228, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-category-box:hover {
+            transform: translateY(-4px);
+            border-color: #5eaedc;
+            box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.15), 0 6px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .product-category-box:hover::before {
+            left: 100%;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .category-header h4 {
+            color: #5eaedc;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+            flex-grow: 1;
+            z-index: 2;
+            position: relative;
+        }
+
+        .toggle-arrow {
+            font-size: 1.2rem;
+            color: #6c757d;
+            transition: transform 0.3s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .product-category-box.active .toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+        .category-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .category-stats {
+            display: inline-block;
+            background: #5eaedc;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Dropdown Styles */
+        .category-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .category-dropdown.active {
+            max-height: 1000px;
+            opacity: 1;
+            transform: translateY(0);
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .category-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-info h5 {
+            color: #5eaedc;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .dropdown-info p {
+            color: #6c757d;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .product-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #5eaedc;
+        }
+
+        .product-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .product-item h6 {
+            color: #343a40;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-item small {
+            color: #6c757d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-category-box {
+                padding: 1.5rem;
+            }
+
+            .category-header {
+                flex-wrap: wrap;
+            }
+
+            .category-icon {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-header h4 {
+                font-size: 1.2rem;
+            }
+
+            .dropdown-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .category-image {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="images/asb-logo.png" alt=""></div>
+		</div>
+	</div>
+	<!-- Preloader End -->
+
+    <!-- Header Start -->
+	<header class="main-header">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<!-- Logo Start -->
+					<a class="navbar-brand" href="index.html">
+						<img src="images/asb-logo.png" alt="Logo">
+					</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a>
+                                    <!-- <ul class="sub-menu">
+                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Image</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Slider</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Video</a></li>
+                                    </ul> -->
+                                </li>                                
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Services</a>
+
+                                    <ul>
+
+                                        <li class="nav-item"><a class="nav-link" href="contract-manufacturing.html">Contract Manufacturing</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="assembly.html">Assembly</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="pipe-tube-processing.html">Pipe & Tube Processing</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="stamping.html">Stamping</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="sheet-metal-fabrication.html">Sheet Metal Fabrication</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="laser-cutting.html">Laser Cutting</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="cnc-vmc-turnings.html">CNC & VMC Turnings</a></li>
+
+                                    </ul>
+
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="project.html">Projects</a>
+                                    <!-- <ul>                                        
+                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>                                       
+                                        <li class="nav-item"><a class="nav-link" href="project.html">Project</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="project-single.html">Project Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact.html">Contact Us</a></li>                               
+                            </ul>
+                        </div>
+                        <!-- Let’s Start Button Start -->
+                        <div class="header-btn d-inline-flex">
+                            <a href="contact.html" class="btn-default">Contact Us</a>
+                        </div>
+                        <!-- Let’s Start Button End -->
+					</div>
+					<!-- Main Menu End -->
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+    <!-- Page Header Start -->
+	<div class="page-header parallaxie">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">Products</h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">Our Products Category</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Header End -->
+
+    <!-- Page Service Single Start -->
+     <div class="page-service-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="service-sidebar">
+                        <!-- Service Categories List Start -->
+                        <div class="service-categories-list wow fadeInUp">
+                            <h3>categories</h3>
+                            <ul>
+                                <li>Infrastructure & Engineering</li>
+                                <li>HVAC</li>
+                                <li>Retail Units</li>
+                                <li>Commercial & Institutional Furniture</li>
+                                <li>Specaility</li>
+                            </ul>
+                        </div>
+                        <!-- Service Categories List End -->
+
+                        <!-- Sidebar Cta Start -->
+                        <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.25s">
+                            <div class="cta-content">
+                                <h3>You still have a question</h3>
+                                <p>You can always get in touch with us if you can't find the answer to your query in our FAQ. We will respond to you soon!</p>
+                            </div>
+
+                            <div class="cta-contact-info">
+                                <!-- Cta Contact Item Start -->
+                                <div class="cta-contact-item">
+                                    <div class="icon-box">
+                                        <img src="images/icon-white-mail.svg" alt="">
+                                    </div>
+                                    <div class="cta-contact-content">
+                                        <p><a href="#">asb.eng.services@gmail.com</a></p>
+                                    </div>
+                                </div>
+                                <!-- Cta Contact Item End -->
+
+                                <!-- Cta Contact Item Start -->
+                                <div class="cta-contact-item">
+                                    <div class="icon-box">
+                                        <img src="images/icon-white-phone.svg" alt="">
+                                    </div>
+                                    <div class="cta-contact-content">
+                                        <p><a href="#">+91 8855029022</a></p>
+                                    </div>
+                                </div>
+                                <!-- Cta Contact Item End -->
+                            </div>
+                        </div>
+                        <!-- Sidebar Cta End -->
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="service-single-content">
+                        <!-- Service Image Slider Start -->
+                        <div class="service-images-slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <!-- Service Image Slide Start -->
+                                    <div class="swiper-slide">
+                                        <div class="service-image-item">
+                                            <figure class="image-anime">
+                                                <img src="images/barricade.png" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <!-- Service Image Slide End -->
+
+                                    <!-- Service Image Slide Start -->
+                                    <div class="swiper-slide">
+                                        <div class="service-image-item">
+                                            <figure class="image-anime">
+                                                <img src="images/furniture.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <!-- Service Image Slide End -->
+
+                                    <!-- Service Image Slide Start -->
+                                    <div class="swiper-slide">
+                                        <div class="service-image-item">
+                                            <figure class="image-anime">
+                                                <img src="images/balcony.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="service-image-item">
+                                            <figure class="image-anime">
+                                                <img src="images/bench.png" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <div class="service-image-item">
+                                            <figure class="image-anime">
+                                                <img src="images/retail.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <!-- Service Image Slide End -->
+                                </div>
+
+                                <div class="swiper-arrow-prev"></div>
+                                <div class="swiper-arrow-next"></div>
+                            </div>
+                        </div>
+                        <!-- Service Image Slider End -->
+
+                        <!-- Enhanced Product Categories Start -->
+                        <div class="product-categories-section">
+                            <h3 class="section-subtitle wow fadeInUp">Our Product Categories</h3>
+                            <p class="section-description wow fadeInUp" data-wow-delay="0.25s">Click on any category below to explore our comprehensive range of products and view detailed specifications.</p>
+
+                            <!-- Product Category Boxes -->
+                            <div class="product-category-container">
+
+                                <!-- Infrastructure & Engineering -->
+                                <div class="product-category-box" data-category="infrastructure" onclick="toggleCategory('infrastructure')">
+                                    <div class="category-header">
+                                        <i class="fas fa-industry fa-3x mb-2 category-icon"></i>
+                                        <h4>Infrastructure & Engineering</h4>
+                                        <div class="toggle-arrow">▼</div>
+                                    </div>
+                                    <p class="category-description">Comprehensive structural and engineering solutions</p>
+                                    <div class="category-stats">12 Products</div>
+                                </div>
+
+                                <!-- Infrastructure Products Dropdown -->
+                                <div class="category-dropdown" id="infrastructure-dropdown">
+                                    <div class="dropdown-header">
+                                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/c2815e54-5419-4efa-ba99-e2bdb19c72d7.png" alt="Infrastructure Products" class="category-image">
+                                        <div class="dropdown-info">
+                                            <h5>Infrastructure & Engineering Products</h5>
+                                            <p>High-quality structural components and engineering solutions for construction projects</p>
+                                        </div>
+                                    </div>
+                                    <div class="products-grid">
+                                        <div class="product-item">
+                                            <!-- <span class="product-icon">🔧</span> -->
+                                             <img src="images/barricade.png" alt="" style="width: 90px; height: 100px; object-fit: cover; margin-right: 1rem; flex-shrink: 0; border-radius: 8px;">
+                                            <div>
+                                                <h6>Shuttering Plates / Centering Plates</h6>
+                                                <small>High-quality formwork plates for concrete casting</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏗️</span>
+                                            <div>
+                                                <h6>Cuplock Ledger & Scaffolding</h6>
+                                                <small>Modular scaffolding systems for safe construction access</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">⚙️</span>
+                                            <div>
+                                                <h6>Steel Formwork</h6>
+                                                <small>Durable steel formwork for precise concrete structures</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔩</span>
+                                            <div>
+                                                <h6>Adjustable Jacks / Props</h6>
+                                                <small>Height-adjustable support systems for construction</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏢</span>
+                                            <div>
+                                                <h6>MS Square Base Plate For Scaffolding</h6>
+                                                <small>Square base plates for scaffolding stability</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏗️</span>
+                                            <div>
+                                                <h6>MS Square Base Plate (Foundation)</h6>
+                                                <small>Foundation base plates for structural support</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔧</span>
+                                            <div>
+                                                <h6>Column Base Plate</h6>
+                                                <small>Precision-engineered column base connections</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">📦</span>
+                                            <div>
+                                                <h6>MS Column Box</h6>
+                                                <small>Steel column enclosures and protective boxing</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🎯</span>
+                                            <div>
+                                                <h6>Column Box Customized</h6>
+                                                <small>Custom-designed column protection solutions</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🛡️</span>
+                                            <div>
+                                                <h6>Wrought Iron Railings</h6>
+                                                <small>Decorative and functional iron railing systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏠</span>
+                                            <div>
+                                                <h6>Balcony Railings</h6>
+                                                <small>Safety railings for balconies and terraces</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">✂️</span>
+                                            <div>
+                                                <h6>Laser Profiles For Balcony Railings</h6>
+                                                <small>Precision laser-cut railing profiles</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Retail Units -->
+                                <div class="product-category-box" data-category="retail" onclick="toggleCategory('retail')">
+                                    <div class="category-header">
+                                        <i class="fas fa-store fa-3x mb-2 category-icon"></i>
+                                        <h4>Retail Units</h4>
+                                        <div class="toggle-arrow">▼</div>
+                                    </div>
+                                    <p class="category-description">Complete retail display and store fitting solutions</p>
+                                    <div class="category-stats">8 Products</div>
+                                </div>
+
+                                <!-- Retail Products Dropdown -->
+                                <div class="category-dropdown" id="retail-dropdown">
+                                    <div class="dropdown-header">
+                                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/365d6151-ca90-4f7a-b292-500d511fe28d.png" alt="Retail Products" class="category-image">
+                                        <div class="dropdown-info">
+                                            <h5>Retail Display Solutions</h5>
+                                            <p>Modern display units and fixtures for retail environments</p>
+                                        </div>
+                                    </div>
+                                    <div class="products-grid">
+                                        <div class="product-item">
+                                            <span class="product-icon">👕</span>
+                                            <div>
+                                                <h6>Fashion & Lifestyle Retail Units</h6>
+                                                <small>Modern display units for fashion stores</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">💄</span>
+                                            <div>
+                                                <h6>Beauty Retail</h6>
+                                                <small>Specialized fixtures for cosmetics and beauty products</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🍎</span>
+                                            <div>
+                                                <h6>Food Retail</h6>
+                                                <small>Hygienic display solutions for food retail</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏷️</span>
+                                            <div>
+                                                <h6>Brand Assets</h6>
+                                                <small>Custom branding and signage solutions</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">📐</span>
+                                            <div>
+                                                <h6>Display Props & Racks</h6>
+                                                <small>Versatile display systems and racks</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🪝</span>
+                                            <div>
+                                                <h6>Peg Hooks</h6>
+                                                <small>Retail hanging and display accessories</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔗</span>
+                                            <div>
+                                                <h6>Display Arms</h6>
+                                                <small>Adjustable display arms and brackets</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🪑</span>
+                                            <div>
+                                                <h6>Table Tops</h6>
+                                                <small>Display tables and surfaces for retail</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Commercial & Institutional Furniture -->
+                                <div class="product-category-box" data-category="commercial" onclick="toggleCategory('commercial')">
+                                    <div class="category-header">
+                                        <i class="fas fa-chair fa-3x mb-2 category-icon" style="margin-right: 10px;"></i>
+                                        <h4 style="margin-left: 10px;">Commercial & Institutional Furniture</h4>
+                                        <div class="toggle-arrow">▼</div>
+                                    </div>
+                                    <p class="category-description">Professional furniture for educational and office environments</p>
+                                    <div class="category-stats">14 Products</div>
+                                </div>
+
+                                <!-- Commercial Products Dropdown -->
+                                <div class="category-dropdown" id="commercial-dropdown">
+                                    <div class="dropdown-header">
+                                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8918a6cb-4819-4e1f-ba80-762ec034f013.png" alt="Commercial Furniture" class="category-image">
+                                        <div class="dropdown-info">
+                                            <h5>Commercial & Institutional Furniture</h5>
+                                            <p>Ergonomic furniture solutions for schools, offices, and institutions</p>
+                                        </div>
+                                    </div>
+                                    <div class="products-grid">
+                                        <div class="product-item">
+                                            <span class="product-icon">🎒</span>
+                                            <div>
+                                                <h6>School Benches & Desks</h6>
+                                                <small>Ergonomic furniture for school environments</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🎓</span>
+                                            <div>
+                                                <h6>College Benches & Desks</h6>
+                                                <small>Durable furniture for higher education</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">👨‍🏫</span>
+                                            <div>
+                                                <h6>Teacher's Desks & Tables</h6>
+                                                <small>Professional desks for educators</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔬</span>
+                                            <div>
+                                                <h6>Lab Furniture</h6>
+                                                <small>Specialized furniture for laboratories</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏫</span>
+                                            <div>
+                                                <h6>School Furniture</h6>
+                                                <small>Complete school furniture solutions</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">📚</span>
+                                            <div>
+                                                <h6>Library Furniture</h6>
+                                                <small>Reading desks and study furniture</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🗄️</span>
+                                            <div>
+                                                <h6>Library Cupboards</h6>
+                                                <small>Storage solutions for libraries</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">💻</span>
+                                            <div>
+                                                <h6>Computer Lab Furniture</h6>
+                                                <small>IT lab desks and workstations</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🖥️</span>
+                                            <div>
+                                                <h6>Modular Work Stations</h6>
+                                                <small>Flexible office workstation systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏢</span>
+                                            <div>
+                                                <h6>Office Tables & Furniture</h6>
+                                                <small>Professional office furniture range</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">📖</span>
+                                            <div>
+                                                <h6>Library Book Racks</h6>
+                                                <small>Book storage and display systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🗃️</span>
+                                            <div>
+                                                <h6>Storage Cupboards</h6>
+                                                <small>Office and institutional storage</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🍽️</span>
+                                            <div>
+                                                <h6>Canteen Furniture & Tables</h6>
+                                                <small>Dining furniture for institutions</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔒</span>
+                                            <div>
+                                                <h6>Storage Lockers</h6>
+                                                <small>Secure personal storage solutions</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Speciality Products -->
+                                <div class="product-category-box" data-category="speciality" onclick="toggleCategory('speciality')">
+                                    <div class="category-header">
+                                        <i class="fas fa-cogs fa-3x mb-2 category-icon" style="margin-right: 10px;"></i>
+                                        <h4 style="margin-left: 10px;">Speciality Products</h4>
+                                        <div class="toggle-arrow">▼</div>
+                                    </div>
+                                    <p class="category-description">Custom engineering solutions and specialized products</p>
+                                    <div class="category-stats">13 Products</div>
+                                </div>
+
+                                <!-- Speciality Products Dropdown -->
+                                <div class="category-dropdown" id="speciality-dropdown">
+                                    <div class="dropdown-header">
+                                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/7278107e-f955-4996-beef-3160653ec1fa.png" alt="Specialty Products" class="category-image">
+                                        <div class="dropdown-info">
+                                            <h5>Specialty Engineering Solutions</h5>
+                                            <p>Custom fabrication and specialized industrial products</p>
+                                        </div>
+                                    </div>
+                                    <div class="products-grid">
+                                        <div class="product-item">
+                                            <span class="product-icon">🪑</span>
+                                            <div>
+                                                <h6>MS & SS Outdoor & Indoor Benches</h6>
+                                                <small>Weather-resistant seating solutions</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🍽️</span>
+                                            <div>
+                                                <h6>Restaurant Steel & Wooden Furniture</h6>
+                                                <small>Commercial dining furniture</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">📦</span>
+                                            <div>
+                                                <h6>Heavy Duty Racks & Shelfs</h6>
+                                                <small>Industrial storage systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏗️</span>
+                                            <div>
+                                                <h6>MS & SS Storage Racking Pallets</h6>
+                                                <small>Warehouse pallet racking systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔧</span>
+                                            <div>
+                                                <h6>MS & SS Brackets</h6>
+                                                <small>Support brackets and mounting hardware</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔌</span>
+                                            <div>
+                                                <h6>Cable Trays</h6>
+                                                <small>Cable management and routing systems</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">💻</span>
+                                            <div>
+                                                <h6>Laptops & Junction Box</h6>
+                                                <small>Electrical enclosures and junction boxes</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🛒</span>
+                                            <div>
+                                                <h6>Trolleys, Bins & Baskets</h6>
+                                                <small>Material handling equipment</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🏆</span>
+                                            <div>
+                                                <h6>MS & SS Display Stands</h6>
+                                                <small>Exhibition and display stands</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🚧</span>
+                                            <div>
+                                                <h6>Barricades & Bollards (MS & SS)</h6>
+                                                <small>Traffic control and safety barriers</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">💡</span>
+                                            <div>
+                                                <h6>Street Poles (standard & Customised)</h6>
+                                                <small>Lighting and utility poles</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🔩</span>
+                                            <div>
+                                                <h6>Flanges</h6>
+                                                <small>Pipe connection and mounting flanges</small>
+                                            </div>
+                                        </div>
+                                        <div class="product-item">
+                                            <span class="product-icon">🎯</span>
+                                            <div>
+                                                <h6>Custom Frame Fabrication (MS & SS)</h6>
+                                                <small>Bespoke structural fabrication services</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Enhanced Product Categories End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Page Service Single End -->
+
+    <!-- Service Benefit Start -->
+     <div class="service-benefit parallaxie">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Benefit Item Start -->
+                    <div class="service-benefit-item wow fadeInUp">
+                        <div class="icon-box">
+                            <img src="images/icon-service-benefit-1.svg" alt="">
+                        </div>
+                        <div class="service-benefit-content">
+                            <h3>contractor service</h3>
+                            <p>Simple actions make a difference. It starts and ends with each employee striving to work safer every single day so they can return.</p>
+                        </div>
+                    </div>
+                    <!-- Service Benefit Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Benefit Item Start -->
+                    <div class="service-benefit-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="icon-box">
+                            <img src="images/icon-service-benefit-2.svg" alt="">
+                        </div>
+                        <div class="service-benefit-content">
+                            <h3>onsite supervision</h3>
+                            <p>Simple actions make a difference. It starts and ends with each employee striving to work safer every single day so they can return.</p>
+                        </div>
+                    </div>
+                    <!-- Service Benefit Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Service Benefit Item Start -->
+                    <div class="service-benefit-item wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="icon-box">
+                            <img src="images/icon-service-benefit-3.svg" alt="">
+                        </div>
+                        <div class="service-benefit-content">
+                            <h3>building construction</h3>
+                            <p>Simple actions make a difference. It starts and ends with each employee striving to work safer every single day so they can return.</p>
+                        </div>
+                    </div>
+                    <!-- Service Benefit Item End -->
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Service Benefit End -->
+
+    <!-- Working Process Start -->
+     <div class="working-process">
+        <div class="container">
+            <div class="row section-row">
+				<!-- Section Title Start -->
+				<div class="section-title">
+					<h3 class="wow fadeInUp">better process</h3>
+					<h2 class="text-anime-style-3" data-cursor="-opaque">The process of working with us</h2>
+					<p class="wow fadeInUp" data-wow-delay="0.25s">We specialize in manufacturing various products as per your requirements. From initial design to final production, we ensure quality and precision at every step.</p>
+				</div>
+				<!-- Section Title End -->
+			</div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Working Process Item Start -->
+                    <div class="working-process-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="step-number">
+                            <h2>01.</h2>
+                        </div>
+                        <div class="working-process-content">
+                            <h3>leave a request</h3>
+                            <p>Simple actions make a difference. If you are interested in our services, please leave a request and we will get back to you shortly.</p>
+                        </div>
+                    </div>
+                    <!-- Working Process Item Start -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Working Process Item Start -->
+                    <div class="working-process-item wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="step-number">
+                            <h2>02.</h2>
+                        </div>
+                        <div class="working-process-content">
+                            <h3>cost calculation</h3>
+                            <p>After reviewing your request, we will provide you with a detailed cost estimate for your project.</p>
+                        </div>
+                    </div>
+                    <!-- Working Process Item Start -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Working Process Item Start -->
+                    <div class="working-process-item wow fadeInUp" data-wow-delay="0.75s">
+                        <div class="step-number">
+                            <h2>03.</h2>
+                        </div>
+                        <div class="working-process-content">
+                            <h3>signing of a contract</h3>
+                            <p>Final step before we begin the project.</p>
+                        </div>
+                    </div>
+                    <!-- Working Process Item Start -->
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Working Process End -->
+
+    <!-- Our FAQs Section Start -->
+    <!-- Our FAQs Section End -->
+
+    <!-- Footer Start -->
+	<footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            <figure>
+                                <img src="images/asb-logo.png" alt="">
+                            </figure>
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- Footer Content Start -->
+                        <div class="footer-content">
+                            <p>Our manufacturing services provide lasting assurance, demonstrating our continued commitment to you even after project completion..</p>
+                        </div>
+                        <!-- Footer Content End -->
+                    </div>
+
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Quick Links Start -->
+                    <div class="footer-links">
+                        <h3>our services</h3>
+                        <ul>                            
+                            <li><a href="#">building construction</a></li>
+                            <li><a href="#">architecture design</a></li>
+                            <li><a href="#">building renovation</a></li>
+                            <li><a href="#">flooring & roofing</a></li>
+                            <li><a href="#">building maintenance</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Quick Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>company</h3>
+                        <ul>
+                            <li><a href="about.html">about us</a></li>
+                            <li><a href="contract-manufacturing.html">services</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="products.html">products</a></li>
+                            <li><a href="contact.html">contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Contact Info Box Start -->
+                    <div class="footer-links footer-contact-box">
+                        <h3>contact us</h3>
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>+91 8855029022</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>asb.eng.services@gmail.com</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-location.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>K/S/2, Evershine Empire, 100 feet Ambadi road, Vasai West, dist. Palghar, Maharashtra, India. 401202</p>
+                        </div>
+                        <!-- Info Box End -->
+                    </div>
+                    <!-- Footer Contact Info Box End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 ASB Engineering Services. All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-5">
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.instagram.com/asb.eng.services/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+	</footer>
+	<!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+
+<script>
+// Enhanced Product Category Toggle Functionality
+function toggleCategory(categoryId) {
+    const box = document.querySelector(`[data-category="${categoryId}"]`);
+    const dropdown = document.getElementById(`${categoryId}-dropdown`);
+    const arrow = box.querySelector('.toggle-arrow');
+
+    // Close all other dropdowns
+    const allBoxes = document.querySelectorAll('.product-category-box');
+    const allDropdowns = document.querySelectorAll('.category-dropdown');
+
+    allBoxes.forEach(otherBox => {
+        if (otherBox !== box) {
+            otherBox.classList.remove('active');
+        }
+    });
+
+    allDropdowns.forEach(otherDropdown => {
+        if (otherDropdown !== dropdown) {
+            otherDropdown.classList.remove('active');
+        }
+    });
+
+    // Toggle current category
+    box.classList.toggle('active');
+    dropdown.classList.toggle('active');
+
+    // Smooth scroll to dropdown if opening
+    if (dropdown.classList.contains('active')) {
+        setTimeout(() => {
+            dropdown.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+            });
+        }, 200);
+    }
+}
+
+// Add smooth hover effects
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryBoxes = document.querySelectorAll('.product-category-box');
+
+    categoryBoxes.forEach(box => {
+        box.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+        });
+
+        box.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    // Add loading animation for product items
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-item').forEach(item => {
+        observer.observe(item);
+    });
+});
+</script>
+
+<style>
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+</style>
+</body>
+
+</html>

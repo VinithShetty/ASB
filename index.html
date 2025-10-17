@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="ASB Engineering Services">
+	<!-- Page Title -->
+	<title>ASB Engineering Services</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/asb-logo.png">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+    <!-- EB Garamond for decorative headings -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- Raleway (requested) -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- Montserrat for hero heading -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="css/slicknav.min.css" rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<!-- Font Awesome Icon Css-->
+	<link href="css/all.css" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="css/animate.css" rel="stylesheet">
+	<!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="css/mousecursor.css">
+	<!-- Main Custom Css -->
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+
+    <style>
+        /* Ensure hero is full-bleed with no rounded corners */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 !important; /* remove any corner curve */
+        }
+
+        .hero-video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* border-radius: 28px; removed to stretch end-to-end */
+        }
+
+        
+        /* .header-sticky .navbar{
+            border-radius: 8px;
+        } */
+
+        /* Mobile: make sure CTA person image in the .cta-box doesn't dominate the viewport */
+        @media (max-width: 576px) {
+            .cta-box .cta-box-image { display: flex; justify-content: center; align-items: center; }
+            .cta-box .cta-box-image img {
+                max-height: 180px; /* cap the image height on small screens */
+                width: auto;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+            /* If the image sits visually too high, add a small bottom margin to give breathing room */
+            .cta-box { padding-bottom: 1.25rem; }
+            /* Slightly reduce header logo on small screens */
+            header .navbar-brand img { max-height: 38px !important; width: auto !important; }
+        }
+
+        /* Mobile: force the four FAQ images to be equal square tiles */
+        @media (max-width: 576px) {
+            .our-faqs .our-faqs-images .image-anime > img,
+            .our-faqs .our-faqs-images figure.image-anime img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                display: block;
+            }
+
+            .our-faqs .our-faqs-images .row > [class*="col-"] {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+
+            /* Make each figure square by using aspect-ratio; fallback to fixed height if aspect-ratio not supported */
+            .our-faqs .our-faqs-images figure.image-anime {
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                border-radius: 16px;
+            }
+
+            /* If any inline styles set a fixed height, override them on mobile */
+            .our-faqs .our-faqs-images figure[style] { height: auto !important; }
+        }
+    
+/* CSS modifications to make hero section stretch end-to-end and remove top gap */
+.hero-border {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure the section containing hero has no top/left/right padding */
+section:has(.hero-border) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important; /* remove any top margin that can create a gap */
+}
+
+/* Ensure hero section itself stretches full width */
+.hero {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+}
+
+/* Ensure hero video covers the full area */
+.hero-video {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Make the hero hollow/outlined heading solid and use Montserrat */
+.hero .section-title h1.hollow-text-clean,
+.hero .section-title h1.hollow-text,
+.hero .section-title h1.font-raleway {
+    color: #5eaedc !important; /* filled color */
+    -webkit-text-stroke: 0 !important; /* remove outline */
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15) !important;
+    font-family: 'Montserrat', 'Raleway', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* Defensive rule: remove unexpected top gap caused by header or body margins */
+body, html {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* If the sticky header is offsetting content, ensure it doesn't add extra space above the hero */
+.header-sticky {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Page-specific override: remove header outer margin that created a white strip at the top */
+header.main-header {
+    margin: 0 !important;
+}
+</style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="images/asb-logo.png" alt=""></div>
+		</div>
+	</div>
+	<!-- Preloader End -->
+
+    <!-- Header Start -->
+	<header class="main-header">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<!-- Logo Start -->
+<a class="navbar-brand" href="index.html">
+    <img src="images/asb-logo.png" alt="ASB Logo">
+</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a>
+                                    <!-- <ul class="sub-menu">
+                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Image</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Slider</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Video</a></li>
+                                    </ul> -->
+                                </li>                                
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Services</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="contract-manufacturing.html">Contract Manufacturing</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="assembly.html">Assembly</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="pipe-tube-processing.html">Pipe & Tube Processing</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="stamping.html">Stamping</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="sheet-metal-fabrication.html">Sheet Metal Fabrication</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="laser-cutting.html">Laser Cutting</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="cnc-vmc-turnings.html">CNC & VMC Turnings</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="project.html">Projects</a>
+                                    <!-- <ul>                                        
+                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>                                       
+                                        <li class="nav-item"><a class="nav-link" href="project.html">Project</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="project-single.html">Project Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact.html">Contact Us</a></li>                               
+                            </ul>
+                        </div>
+                        <!-- Let’s Start Button Start -->
+                        <div class="header-btn d-inline-flex">
+                            <a href="contact.html" class="btn-default">Contact Us</a>
+                        </div>
+                        <!-- Let’s Start Button End -->
+					</div>
+					<!-- Main Menu End -->
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+    <!-- Hero Section Start -->
+    <div class="hero-border">
+    <div class="hero bg-section parallaxie">
+		<!-- Video Background Start -->
+		<video autoplay muted loop class="hero-video">
+			<source src="images/hero-bg-video.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<!-- Video Background End -->
+		<div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content">
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">welcome to ASB Engineering Services</h3>
+                            <h1 class="text-anime-style-3" data-cursor="-opaque">End-to-End Engineering</h1>
+                            <h1 class="text-anime-style-3 hollow-text-clean font-raleway" data-cursor="-opaque">Manufacturing Excellence</h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">Precision Focused. Globally Trusted. Built for Scalability</p>
+                        </div>
+
+                        <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
+                            <a href="contact.html" class="btn-default">get a quote</a>
+                            <a href="capabilities.html" class="btn-default btn-highlighted">explore capabilities</a>
+                        </div>
+                    </div>
+                    <!-- Hero Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Hero Section End -->
+
+    <!-- About Section Start -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- About Us Image Start -->
+                    <div class="about-image">
+                        <div class="about-img">
+                            <figure class="reveal">
+                                <img src="images/about-us-img.png" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- About Us Image End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- About Content Start -->
+                    <div class="about-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">about us</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Engineering Tomorrow's Solutions – Today</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">At ASB Engineering Services, we specialize in custom sheet metal fabrication, precision CNC machining, mechanical assemblies, and end-to-end manufacturing solutions tailored for industrial applications. Our engineering-first approach ensures technical accuracy, production efficiency, and quality excellence from prototype to mass production.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Content Body Start -->
+                        <div class="about-content-body wow fadeInUp" data-wow-delay="0.5s">
+                            <ul>
+                                <li>Comprehensive Services</li>
+                                <li>Advanced Technology</li>
+                                <li>Transparent Communication</li>
+                            </ul>
+                        </div>
+                        <!-- About Content Body End -->
+
+                        <!-- About Content Footer Start -->
+                        <div class="about-content-footer wow fadeInUp" data-wow-delay="0.75s">
+                            <div class="about-footer-btn">
+                                <a href="contact.html" class="btn-default">get free quote</a>
+                            </div>
+                            <div class="about-contact-support">
+                                <div class="icon-box">
+                                    <img src="images/icon-phone.svg" alt="">
+                                </div>
+                                <div class="about-support-content">
+                                    <p>Call Support</p>
+                                    <h3>+91 8855029022</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- About Content Footer End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section End -->
+
+    <!-- Our Service Section Start -->
+    <div class="our-service">
+        <div class="light-bg-section">
+            <div class="container-fluid">
+                <div class="row section-row">
+                    <div class="col-lg-12">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">our services</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Key Value Propositions</h2>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Service Item Start -->
+                        <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
+                            <!-- Service Image Start -->
+                            <div class="service-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>                                
+                                        <img src="images/one-stop.jpg" alt="">
+                                    </figure>
+                                </a>                            
+                            </div>
+                            <!-- Service Image End -->
+    
+                            <!-- Service Body Start -->
+                            <div class="service-body">
+                                <!-- Service Body Title Start -->
+                                <div class="service-body-title">
+                                    <h3>One-Stop Manufacturing Partner</h3>
+                                </div>
+                                <!-- Service Body Title End -->
+    
+                                <!-- Service Content Start -->
+                                <div class="service-content">
+                                    <p>ASB Engineering Services is your trusted one-stop manufacturing partner for high-quality steel products and custom steel structures. Equipped with advanced technology and skilled expertise, we deliver end-to-end solutions—from design and fabrication to finishing and assembly—ensuring precision, durability, and efficiency for every project.</p>
+                                    <!-- <div class="service-content-footer">
+                                        <a href="#" class="readmore-btn">view more</a>
+                                    </div> -->
+                                </div>   
+                                <!-- Service Content End -->                         
+                            </div>
+                            <!-- Service Body End -->
+                        </div>
+                        <!-- Service Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Service Item Start -->
+                        <div class="service-item wow fadeInUp" data-wow-delay="0.5s">
+                            <!-- Service Image Start -->
+                            <div class="service-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>                                
+                                        <img src="images/inhouse.jpg" alt="">
+                                    </figure>
+                                </a>                            
+                            </div>
+                            <!-- Service Image End -->
+    
+                            <!-- Service Body Start -->
+                            <div class="service-body">
+                                <!-- Service Body Title Start -->
+                                <div class="service-body-title">
+                                    <h3>In-House Design + DFM Support</h3>
+                                </div>
+                                <!-- Service Body Title End -->
+    
+                                <!-- Service Content Start -->
+                                <div class="service-content">
+                                    <p>At ASB Engineering Services, our in-house design team combines creativity with technical expertise to develop efficient, reliable, and cost-effective steel solutions. With Design for Manufacturing (DFM) support integrated into every project, we ensure that concepts are optimized for production—minimizing waste, reducing costs, and accelerating delivery. From idea to execution, we help you build smarter, stronger, and more practical steel structures.</p>
+                                    <!-- <div class="service-content-footer">
+                                        <a href="#" class="readmore-btn">view more</a>
+                                    </div> -->
+                                </div>   
+                                <!-- Service Content End -->                         
+                            </div>
+                            <!-- Service Body End -->
+                        </div>
+                        <!-- Service Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Service Item Start -->
+                        <div class="service-item wow fadeInUp" data-wow-delay="0.75s">
+                            <!-- Service Image Start -->
+                            <div class="service-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>                                
+                                        <img src="images/flex.jpg" alt="">
+                                    </figure>
+                                </a>                            
+                            </div>
+                            <!-- Service Image End -->
+    
+                            <!-- Service Body Start -->
+                            <div class="service-body">
+                                <!-- Service Body Title Start -->
+                                <div class="service-body-title">
+                                    <h3>Flexible Volume: Prototypes to Production</h3>
+                                </div>
+                                <!-- Service Body Title End -->
+    
+                                <!-- Service Content Start -->
+                                <div class="service-content">
+                                    <p>ASB Engineering Services offers unmatched flexibility in manufacturing—whether you need a single prototype or full-scale production runs. Our agile processes and advanced capabilities ensure consistent quality and precision at every stage, giving you the freedom to scale seamlessly as your project grows. From testing new concepts to delivering large-volume orders, we adapt to your needs with reliability and efficiency.</p>
+                                    <!-- <div class="service-content-footer">
+                                        <a href="#" class="readmore-btn">view more</a>
+                                    </div> -->
+                                </div>   
+                                <!-- Service Content End -->                         
+                            </div>
+                            <!-- Service Body End -->
+                        </div>
+                        <!-- Service Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Service Item Start -->
+                        <div class="service-item wow fadeInUp" data-wow-delay="1s">
+                            <!-- Service Image Start -->
+                            <div class="service-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>                                
+                                        <img src="images/infras.jpg" alt="">
+                                    </figure>
+                                </a>                            
+                            </div>
+                            <!-- Service Image End -->
+    
+                            <!-- Service Body Start -->
+                            <div class="service-body">
+                                <!-- Service Body Title Start -->
+                                <div class="service-body-title">
+                                    <h3>Infrastructure for Complex Assemblies</h3>
+                                </div>
+                                <!-- Service Body Title End -->
+    
+                                <!-- Service Content Start -->
+                                <div class="service-content">
+                                    <p>ASB Engineering Services is equipped with the infrastructure to handle complex steel assemblies with precision and efficiency. Our advanced facilities, skilled workforce, and integrated processes allow us to manage large-scale, multi-component projects from start to finish. With a focus on accuracy, safety, and seamless integration, we deliver robust assemblies that meet the highest industry standards.</p>
+                                    <!-- <div class="service-content-footer">
+                                        <a href="#" class="readmore-btn">view more</a>
+                                    </div> -->
+                                </div>   
+                                <!-- Service Content End -->                         
+                            </div>
+                            <!-- Service Body End -->
+                        </div>
+                        <!-- Service Item End -->
+                    </div>
+        
+                    <!-- Services Footer Btn Start -->
+                    <!-- <div class="service-footer-btn wow fadeInUp" data-wow-delay="1.25s">
+                        <a href="#" class="btn-default">view all services</a>
+                    </div> -->
+                    <!-- Services Footer Btn End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Service Section End -->
+
+    <!-- Why Choose Us Section Start -->
+    <div class="why-choose-us">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">What we do?</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Why we're your best choice</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">At ASB Engineering services, we are dedicated to providing comprehensive manufacturing solutions that bring your industrial vision to life.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="icon-box">
+                            <img src="images/icon-why-choose-1.svg" alt="">
+                        </div>
+                        <div class="why-choose-content">
+                            <h3>Custom Sheet Metal Fabrication</h3>
+                            <p>We specialize in custom sheet metal fabrication, offering a wide range of services from precision cutting and bending to welding and finishing. Our expertise allows us to transform raw materials into complex components and enclosures that meet your exact specifications.</p>
+                        </div>
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">100</span>+</h3>
+                            <p>projects completed</p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Image Start -->
+                    <div class="why-choose-image">
+                        <figure class="image-anime reveal">
+                            <img src="images/do-img-1.jpg" alt="">
+                        </figure>
+                    </div>
+                    <!-- Why Choose Image End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp"  data-wow-delay="0.25s">
+                        <div class="icon-box">
+                            <img src="images/icon-why-choose-2.svg" alt="">
+                        </div>
+                        <div class="why-choose-content">
+                            <h3>Precision CNC Machining</h3>
+                            <p>Utilizing state-of-the-art CNC technology, we provide high-precision machining services for a variety of materials. Our capabilities include milling, turning, and drilling to produce intricate parts with tight tolerances, ensuring superior quality and performance for your critical applications.</p>
+                        </div>
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">50</span>+</h3>
+                            <p>projects completed</p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Image Start -->
+                    <div class="why-choose-image">
+                        <figure class="image-anime reveal">
+                            <img src="images/do-img-2.jpg" alt="">
+                        </figure>
+                    </div>
+                    <!-- Why Choose Image End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="icon-box">
+                            <img src="images/icon-why-choose-3.svg" alt="">
+                        </div>
+                        <div class="why-choose-content">
+                            <h3>Mechanical Assemblies</h3>
+                            <p>We offer comprehensive mechanical assembly services, handling everything from component sourcing and sub-assembly to final product integration and testing. Our skilled team ensures that all components fit perfectly and function as intended, streamlining your production process and delivering a ready-to-use product.</p>
+                        </div>
+                        <div class="why-choose-counter">
+                            <h3><span class="counter">100</span>+</h3>
+                            <p>projects complated</p>
+                        </div>
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Why Choose Image Start -->
+                    <div class="why-choose-image">
+                        <figure class="image-anime reveal">
+                            <img src="images/do-img-3.jpg" alt="">
+                        </figure>
+                    </div>
+                    <!-- Why Choose Image End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section End -->
+
+    <!-- Our Projects Section Start -->
+    <div class="our-projects">
+        <div class="light-bg-section">
+            <div class="container-fluid">
+                <div class="row section-row">
+                    <div class="col-lg-12">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">our projects</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Explore our diverse range of projects</h2>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Project Item Start -->
+                        <div class="project-item wow fadeInUp" data-wow-delay="0.25s">
+                            <!-- Project Image Start -->
+                            <div class="project-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>
+                                        <img src="images/our-project-1.jpeg" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- Project Image End -->
+    
+                            <!-- Project Body Start -->
+                            <div class="project-body">
+                                <!-- Project Body Title Start -->
+                                <div class="project-body-title">
+                                    <h3>Precision Forklift Stub Axle Development</h3>
+                                </div>
+                                <!-- Project Body Title End -->
+    
+                                <!-- Project Content Start -->
+                                <div class="project-content">
+                                    <p>ASB Engineering Services successfully developed and delivered precision forklift stub axle prototypes for one of India’s leading MNCs. The project involved designing, machining, and heat-treatment of high-strength steel components to meet stringent load-bearing and fatigue requirements.</p>
+                                    <div class="project-content-footer">
+                                        <a href="project-single-1.html" class="readmore-btn">view more</a>
+                                    </div>
+                                </div>
+                                <!-- Project Content End -->                       
+                            </div>
+                            <!-- Project Body End -->
+                        </div>
+                        <!-- Project Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Project Item Start -->
+                        <div class="project-item wow fadeInUp" data-wow-delay="0.5s">
+                            <!-- Project Image Start -->
+                            <div class="project-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>
+                                        <img src="images/our-project-2.jpg" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+    
+                            <!-- Project Image End -->
+    
+                            <!-- Project Body Start -->
+                            <div class="project-body">
+                                <!-- Project Body Title Start -->
+                                <div class="project-body-title">
+                                    <h3>HVAC-Industrial Fire Dampers for Industrial applications</h3>
+                                </div>
+                                <!-- Project Body Title End -->
+    
+                                <!-- Project Content Start -->
+                                <div class="project-content">
+                                    <p>Designed and manufactured custom fire dampers with fusible links for a leading HVAC solutions provider. The dampers were engineered for industrial applications, ensuring strict compliance with safety and air-filtration standards.</p>
+                                    <div class="project-content-footer">
+                                        <a href="project-single-2.html" class="readmore-btn">view more</a>
+                                    </div>
+                                </div>
+                                <!-- Project Content End -->                       
+                            </div>
+                            <!-- Project Body End -->
+                        </div>
+                        <!-- Project Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Project Item Start -->
+                        <div class="project-item wow fadeInUp" data-wow-delay="0.75s">
+                            <!-- Project Image Start -->
+                            <div class="project-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>
+                                        <img src="images/our-project-3.jpg" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- Project Image End -->
+    
+                            <!-- Project Body Start -->
+                            <div class="project-body">
+                                <!-- Project Body Title Start -->
+                                <div class="project-body-title">
+                                    <h3>Retail Display Racks for FMCG Brand</h3>
+                                </div>
+                                <!-- Project Body Title End -->
+    
+                                <!-- Project Content Start -->
+                                <div class="project-content">
+                                    <p>ASB manufactured modular retail display racks for a fast-moving consumer goods brand. Designed with aesthetic appeal and structural durability, the racks were optimized for quick assembly, lightweight handling, and long-term use.</p>
+                                    <div class="project-content-footer">
+                                        <a href="project-single-3.html" class="readmore-btn">view more</a>
+                                    </div>
+                                </div>
+                                <!-- Project Content End -->                       
+                            </div>
+                            <!-- Project Body End -->
+                        </div>
+                        <!-- Project Item End -->
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Project Item Start -->
+                        <div class="project-item wow fadeInUp" data-wow-delay="1s">
+                            <!-- Project Image Start -->
+                            <div class="project-image" data-cursor-text="View">
+                                <a href="#">
+                                    <figure>
+                                        <img src="images/our-project-4.jpg" alt="">
+                                    </figure>
+                                </a>
+                            </div>
+                            <!-- Project Image End -->
+    
+                            <!-- Project Body Start -->
+                            <div class="project-body">
+                                <!-- Project Body Title Start -->
+                                <div class="project-body-title">
+                                    <h3>Custom CNC Machined Aluminum Parts for Electrical OEM</h3>
+                                </div>
+                                <!-- Project Body Title End -->
+    
+                                <!-- Project Content Start -->
+                                <div class="project-content">
+                                    <p>Delivered custom-machined aluminum enclosures and brackets for a global electrical OEM. Each part required tight tolerance machining followed by anodizing for corrosion resistance and enhanced durability.</p>
+                                    <div class="project-content-footer">
+                                        <a href="project-single-4.html" class="readmore-btn">view more</a>
+                                    </div>
+                                </div>
+                                <!-- Project Content End -->                       
+                            </div>
+                            <!-- Project Body End -->
+                        </div>
+                        <!-- Project Item End -->
+                    </div>
+        
+                    <!-- Services Footer Btn Start -->
+                    <div class="project-footer-btn wow fadeInUp" data-wow-delay="1.25s">
+                        <a href="project.html" class="btn-default">view all projects</a>
+                    </div>
+                    <!-- Services Footer Btn End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Projects Section End -->
+
+    <!-- Cta Box Section Start -->
+    <div class="cta-box">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-8">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Let's bulid something great together!</h2>
+                        <p class="wow fadeInUp">Stop waiting to scale your production. Collaborate with ASB Engineering Services and experience world-class manufacturing solutions designed for excellence.</p>
+                    </div>
+                    <!-- Section Title End -->
+
+                    <!-- Section Btn Start -->
+                    <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
+                        <a href="contact.html" class="btn-default btn-large">get free quote</a>
+                    </div>
+                    <!-- Section Btn End -->
+                </div>
+
+                <div class="col-lg-5 col-md-4">
+                    <!-- Cta Box Image Start -->
+                    <div class="cta-box-image">
+                        <figure>
+                            <img src="images/cta-box-img.png" alt="">
+                        </figure>
+                    </div>
+                    <!-- Cta Box Image End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cta Box Section End -->
+
+    <!-- Our Testiminial Start -->
+    <div class="our-testimonial">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">testimonials</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">What people are saying about us</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s">People's opinion matters a lot while talking about our services and the final product we deliver.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Testimonial Slider Start -->
+                    <div class="testimonial-slider">
+                        <div class="swiper">
+                            <div class="swiper-wrapper" data-cursor-text="Drag">
+                                <!-- Testimonial Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-header">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>ASB Engineering Services has consistently delivered high-quality components with remarkable precision. Their CNC machining and sheet metal fabrication capabilities have helped us streamline our production without any compromises on accuracy. Truly a dependable partner for critical projects.</p>									
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <div class="author-image">
+                                                <figure class="image-anime">
+                                                    <img src="images/author-1.jpg" alt="">
+                                                </figure>
+                                            </div>            
+                                            <div class="author-content">
+                                                <h3>Viraj Mehta</h3>
+                                                <p>Senior Purchase Engineer, Automotive OEM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-header">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <!-- <i class="fa-solid fa-star"></i> -->
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>What impressed us the most about ASB was their ability to handle both prototypes and bulk orders with the same level of commitment. Even under tight deadlines, their team ensured on-time delivery without compromising quality. Their flexibility makes them our go-to supplier.</p>									
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <div class="author-image">
+                                                <figure class="image-anime">
+                                                    <img src="images/author-2.jpg" alt="">
+                                                </figure>
+                                            </div>            
+                                            <div class="author-content">
+                                                <h3>Harshal Shetty</h3>
+                                                <p> Procurement Head, Industrial Equipment Manufacturer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-header">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>Beyond manufacturing, ASB’s engineering team provided valuable design-for-manufacturability inputs that reduced our costs and improved performance. Their proactive approach and technical expertise make them more than just a vendor — they are true engineering partners.</p>									
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <div class="author-image">
+                                                <figure class="image-anime">
+                                                    <img src="images/author-5.png" alt="">
+                                                </figure>
+                                            </div>            
+                                            <div class="author-content">
+                                                <h3>Manali Patil</h3>
+                                                <p>R&D Manager, Electrical Systems Company</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-header">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>We sourced custom HVAC components from ASB, and the quality exceeded our expectations. From material selection to finishing, everything was executed flawlessly. Their transparent communication and strong quality control process gave us complete confidence in their work.</p>									
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <div class="author-image">
+                                                <figure class="image-anime">
+                                                    <img src="images/author-4.jpg" alt="">
+                                                </figure>
+                                            </div>            
+                                            <div class="author-content">
+                                                <h3>Mihir Shinde</h3>
+                                                <p> Project Manager, Clean Room & HVAC Solutions Provider</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-header">
+                                            <div class="testimonial-rating">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <!-- <i class="fa-solid fa-star"></i> -->
+                                            </div>
+                                            <div class="testimonial-content">
+                                                <p>Over the years, ASB Engineering Services has proven to be a trustworthy partner who understands our business needs. Their consistent delivery, innovative solutions, and commitment to excellence have played a key role in our supply chain success. We hope to keep up this collaboration in the years to come.</p>									
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <div class="author-image">
+                                                <figure class="image-anime">
+                                                    <img src="images/author-3.png" alt="">
+                                                </figure>
+                                            </div>            
+                                            <div class="author-content">
+                                                <h3>Rishabh Patel</h3>
+                                                <p>Vendor Development Engineer, Heavy Machinery Company</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Testimonial Slide End -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Slider End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Testiminial End -->
+
+    <!-- Our FAQs Section Start -->
+    <div class="our-faqs">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">faqs</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Got questions? we've got answers</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Our FAQs Images Start -->
+                    <div class="our-faqs-images">
+                        <div class="row align-items-end">
+                            <div class="col-md-6 col-6">
+                                <!-- FAQs Img Start -->
+                                <div class="faqs-img-1">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/our-faqs-img-1.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <!-- FAQs Img End -->                              
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <!-- FAQs Img Start -->
+                                <div class="faqs-img-2">
+                                    <figure class="image-anime reveal">
+                                        <img src="images/our-faqs-img-2.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <!-- FAQs Img End -->
+                            </div>
+                        </div>
+
+                        <div class="row align-items-start">
+                            <div class="col-md-6 col-6">
+                                <!-- FAQs Img Start -->
+                                <div class="faqs-img-1">
+                                    <figure class="image-anime reveal" style="height: 170px;">
+                                        <img src="images/our-faqs-img-3.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <!-- FAQs Img End -->                                
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <!-- FAQs Img Start -->
+                                <div class="faqs-img-2">
+                                    <figure class="image-anime reveal" style="height: 170px; width: 100%;">
+                                        <img src="images/our-faqs-img-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <!-- FAQs Img End -->
+                            </div>
+                        </div>
+
+                        <div class="our-faqs-bulitup">
+                            <img src="images/asb-new-logo.png" alt="">
+                        </div>
+                    </div>
+                    <!-- Our FAQs Images End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- FAQ Accordion Start -->
+					<div class="faq-accordion" id="accordion">
+						<!-- FAQ Item Start -->
+						<div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
+							<h2 class="accordion-header" id="headingOne">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									What services does ASB Engineering Services provide?
+								</button>
+							</h2>
+							<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+								data-bs-parent="#accordion">
+								<div class="accordion-body">
+									<p>We offer a complete range of engineering and manufacturing solutions, including custom sheet metal fabrication, CNC/VMC machining, precision press components, industrial HVAC products, and retail display racks. From prototyping to bulk production, we deliver end-to-end support with a strong focus on quality and timelines.</p>
+								</div>
+							</div>
+						</div>
+						<!-- FAQ Item End -->
+
+						<!-- FAQ Item Start -->
+						<div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+							<h2 class="accordion-header" id="headingTwo">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									Can you handle both prototype development and large-scale production?
+								</button>
+							</h2>
+							<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+								data-bs-parent="#accordion">
+								<div class="accordion-body">
+									<p>Yes. We specialize in rapid prototyping to help clients validate their designs quickly, and we also have the infrastructure to support batch and bulk production. Whether you need a single prototype or mass-manufactured assemblies, ASB ensures the same level of precision and reliability.</p>
+								</div>
+							</div>
+						</div>
+						<!-- FAQ Item End -->
+
+						<!-- FAQ Item Start -->
+						<div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
+							<h2 class="accordion-header" id="headingThree">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									Which industries do you serve with your manufacturing capabilities?
+								</button>
+							</h2>
+							<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+								data-bs-parent="#accordion">
+								<div class="accordion-body">
+									<p>Our solutions cater to a wide range of industries, including automotive, industrial HVAC, electrical systems, heavy machinery, railways, retail displays, and custom OEM manufacturing.</p>
+								</div>
+							</div>
+						</div>
+						<!-- FAQ Item End -->
+
+                        <!-- FAQ Item Start -->
+						<div class="accordion-item wow fadeInUp" data-wow-delay="1s">
+                            <h2 class="accordion-header" id="headingfour">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+									How do you ensure quality in your manufacturing processes?
+								</button>
+							</h2>
+							<div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
+								data-bs-parent="#accordion">
+								<div class="accordion-body">
+									<p>Quality is at the core of everything we do. We follow strict inspection protocols, including incoming material checks, in-process quality control, and final product validation. Our facilities use precision measuring equipment like CMMs and Vernier gauges, and every batch is delivered with complete documentation and traceability.</p>
+								</div>
+							</div>
+						</div>
+						<!-- FAQ Item End -->
+					</div>
+					<!-- FAQ Accordion End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our FAQs Section End -->
+
+    <!-- Our Blog Section End -->
+    <div class="our-blog">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">news & blog</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Articles & blog posts</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <div class="col-lg-4 col-md-6"> -->
+                    <!-- Blog Item Start -->
+                    <!-- <div class="blog-item wow fadeInUp" data-wow-delay="0.25s"> -->
+                        <!-- Post Featured Image Start-->
+                        <!-- <div class="post-featured-image" data-cursor-text="View">
+                            <figure>
+                                <a href="#" class="image-anime">
+                                    <img src="images/post-1.jpg" alt="">
+                                </a>
+                            </figure>
+                        </div> -->
+                        <!-- Post Featured Image End -->
+
+                        <!-- post Item Content Start -->
+                        <!-- <div class="post-item-content">
+                             post Item Body Start -->
+                            <!-- <div class="post-item-body">
+                                <h2><a href="#">10 Essential Tips for Choosing the Right Builder</a></h2>
+                            </div>
+                             Post Item Body End-->
+
+                            <!-- Post Item Footer Start-->
+                            <!-- <div class="post-item-footer">
+                                <a href="#" class="readmore-btn">read more</a>
+                            </div> --> 
+                            <!-- Post Item Footer End-->
+                        <!-- </div>  -->
+                        <!-- post Item Content End -->
+                    <!-- </div> -->
+                    <!-- Blog Item End -->
+                <!-- </div> -->
+
+                <!-- <div class="col-lg-4 col-md-6"> -->
+                    <!-- Blog Item Start -->
+                    <!-- <div class="blog-item wow fadeInUp" data-wow-delay="0.5s"> -->
+                        <!-- Post Featured Image Start-->
+                        <!-- <div class="post-featured-image" data-cursor-text="View">
+                            <figure>
+                                <a href="#" class="image-anime">
+                                    <img src="images/post-2.jpg" alt="">
+                                </a>
+                            </figure>
+                        </div> -->
+                        <!-- Post Featured Image End -->
+
+                        <!-- post Item Content Start -->
+                        <!-- <div class="post-item-content"> -->
+                            <!-- post Item Body Start -->
+                            <!-- <div class="post-item-body">
+                                <h2><a href="#">The Future of Sustainable Construction Innovations</a></h2>
+                            </div> -->
+                            <!-- Post Item Body End-->
+
+                            <!-- Post Item Footer Start-->
+                            <!-- <div class="post-item-footer">
+                                <a href="#" class="readmore-btn">read more</a>
+                            </div> -->
+                            <!-- Post Item Footer End-->
+                        <!-- </div> -->
+                        <!-- post Item Content End -->
+                    <!-- </div> -->
+                    <!-- Blog Item End -->
+                <!-- </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- Our Blog End -->
+
+    <!-- Our Story Section Start -->
+    <div class="our-story">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Our Story</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">The Story Behind ASB – Why We Started</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Our Story Content Start -->
+                    <div class="our-story-content wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="story-intro">
+                            <p class="story-question">It all started with one question — <strong>"Why should quality engineering services be limited to big corporations?"</strong></p>
+                            
+                            <div class="story-mission">
+                                <p>ASB was born out of a simple yet powerful idea:</p>
+                                <blockquote>
+                                    To offer reliable, precision-driven, and scalable engineering services to all — whether you're a startup, SME, or an industry giant.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Our Story Content End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Our Story Promise Start -->
+                    <div class="our-story-promise wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="promise-header">
+                            <h3>We started ASB with a promise:</h3>
+                        </div>
+                        
+                        <div class="promise-list">
+                            <div class="promise-item">
+                                <div class="promise-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </div>
+                                <div class="promise-content">
+                                    <h4>To think like engineers</h4>
+                                </div>
+                            </div>
+
+                            <div class="promise-item">
+                                <div class="promise-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </div>
+                                <div class="promise-content">
+                                    <h4>To operate like partners</h4>
+                                </div>
+                            </div>
+
+                            <div class="promise-item">
+                                <div class="promise-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </div>
+                                <div class="promise-content">
+                                    <h4>To deliver like professionals</h4>
+                                </div>
+                            </div>
+
+                            <div class="promise-item">
+                                <div class="promise-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </div>
+                                <div class="promise-content">
+                                    <h4>And to never forget why we began — not for quantity, but for quality with integrity</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Our Story Promise End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Us Section End -->
+
+    <!-- Footer Start -->
+	<footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+<div class="footer-logo">
+    <figure>
+        <a href="index.html">
+        <img src="images/asb-logo.png" alt="ASB Logo">
+        </a>
+    </figure>
+</div>
+                        <!-- Footer Logo End -->
+
+                        <!-- Footer Content Start -->
+                        <div class="footer-content">
+                            <p>Our manufacturing services provide lasting assurance, demonstrating our continued commitment to you even after project completion.</p>
+                        </div>
+                        <!-- Footer Content End -->
+                    </div>
+
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Quick Links Start -->
+                    <div class="footer-links">
+                        <h3>our services</h3>
+                        <ul>                            
+                            <li><a href="contract-manufacturing.html">Contract Manufacturing</a></li>
+                            <li><a href="assembly.html">Assembly</a></li>
+                            <li><a href="pipe-tube-processing.html">Pipe and Tube Processing</a></li>
+                            <li><a href="stamping.html">Stamping</a></li>
+                            <li><a href="sheet-metal-fabrication.html">Sheet Metal Fabrication</a></li>
+                            <li><a href="laser-cutting.html">Laser Cutting</a></li>
+                            <li><a href="cnc-vmc-turnings.html">CNC & VMC Turnings</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Quick Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>company</h3>
+                        <ul>
+                            <li><a href="about.html">about us</a></li>
+                            <li><a href="contract-manufacturing.html">services</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="project.html">Projects</a></li>
+                            <li><a href="contact.html">contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Contact Info Box Start -->
+                    <div class="footer-links footer-contact-box">
+                        <h3>contact us</h3>
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box" style="color: #5eaedc;">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>+91 8855029022</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>asb.eng.services@gmail.com</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-location.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>K/S/2, Evershine Empire, 100 feet Ambadi road, Vasai West, dist. Palghar, Maharashtra, India. 401202</p>
+                        </div>
+                        <!-- Info Box End -->
+                    </div>
+                    <!-- Footer Contact Info Box End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 ASB Engineering Services. All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-5">
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.instagram.com/asb.eng.services?igsh=aG12aTdmZWY1c250&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/asb-engineering-services/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+	</footer>
+	<!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+</body>
+
+</html>

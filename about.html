@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="ASB Engineering Services">
+	<!-- Page Title -->
+	<title>ASB Engineering Services</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/asb-logo.png">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="css/slicknav.min.css" rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<!-- Font Awesome Icon Css-->
+	<link href="css/all.css" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="css/animate.css" rel="stylesheet">
+	<!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="css/mousecursor.css">
+	<!-- Main Custom Css -->
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+
+	<!-- Page-scoped tweaks: center mission/vision icons and headings -->
+	<style>
+		.our-mission-vision .mission-vision-item { text-align: center; padding-top: 18px; }
+		.our-mission-vision .mission-vision-item .icon-box { display:block; margin: 0 auto 12px; }
+		.our-mission-vision .mission-vision-item .icon-box img { max-width: 64px; height: auto; display:block; }
+		.our-mission-vision .mission-vision-item .mission-vision-content h3 { margin-top: 6px; margin-bottom: 10px; }
+		/* Give the content a little top padding so the icon sits visually inside the rounded card */
+		.our-mission-vision .mission-vision-item { padding-top: 28px; }
+		/* On small screens, keep spacing modest */
+		@media (max-width: 576px) {
+			.our-mission-vision .mission-vision-item { padding-top: 20px; }
+
+			.cta-box .cta-box-image { display: flex; justify-content: center; align-items: center; }
+            .cta-box .cta-box-image img {
+                max-height: 180px; /* cap the image height on small screens */
+                width: auto;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+            /* If the image sits visually too high, add a small bottom margin to give breathing room */
+            .cta-box { padding-bottom: 1.25rem; }
+            /* Slightly reduce header logo on small screens */
+            header .navbar-brand img { max-height: 38px !important; width: auto !important; }
+		}
+	</style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="images/asb-logo.png" alt=""></div>
+		</div>
+	</div>
+	<!-- Preloader End -->
+
+    <!-- Header Start -->
+	<header class="main-header">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<!-- Logo Start -->
+					<a class="navbar-brand" href="index.html">
+						<img src="images/asb-logo.png" alt="Logo">
+					</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a>
+                                    <!-- <ul class="sub-menu">
+                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Image</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Slider</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Video</a></li>
+                                    </ul> -->
+                                </li>                                
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Services</a>
+
+                                    <ul>
+
+                                        <li class="nav-item"><a class="nav-link" href="contract-manufacturing.html">Contract Manufacturing</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="assembly.html">Assembly</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="pipe-tube-processing.html">Pipe & Tube Processing</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="stamping.html">Stamping</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="sheet-metal-fabrication.html">Sheet Metal Fabrication</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="laser-cutting.html">Laser Cutting</a></li>
+
+                                        <li class="nav-item"><a class="nav-link" href="cnc-vmc-turnings.html">CNC & VMC Turnings</a></li>
+
+                                    </ul>
+
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="project.html">Projects</a>
+                                    <!-- <ul>                                        
+                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Infrastructure Engineering</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>                                       
+                                        <li class="nav-item"><a class="nav-link" href="project.html">Retail Units</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="project-single.html">Commercial & Institutional Furniture</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="team.html">Speciality</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact.html">Contact Us</a></li>                               
+                            </ul>
+                        </div>
+                        <!-- Let’s Start Button Start -->
+                        <div class="header-btn d-inline-flex">
+                            <a href="contact.html" class="btn-default">Contact Us</a>
+                        </div>
+                        <!-- Let’s Start Button End -->
+					</div>
+					<!-- Main Menu End -->
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+    <!-- Page Header Start -->
+	<div class="page-header parallaxie">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">About Us</h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">about us</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Header End -->
+
+    <!-- Page About Us Start -->
+    <div class="page-about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- About Us Image Start -->
+                    <div class="about-us-image">
+                        <div class="about-us-img">
+                            <figure class="reveal">
+                                <img src="images/about-us-img.png" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- About Us Image End -->
+                </div>
+
+                <div class="col-lg-7">
+                    <!-- About Content Start -->
+                    <div class="about-us-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">about us</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Engineering Tomorrow's Solutions – Today</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">At ASB Engineering Services, we specialize in custom sheet metal fabrication, precision CNC machining, mechanical assemblies, and end-to-end manufacturing solutions tailored for industrial applications. Our engineering-first approach ensures technical accuracy, production efficiency, and quality excellence from prototype to mass production.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Content Body Start -->
+                        <div class="about-us-content-body wow fadeInUp" data-wow-delay="0.5s">
+                            <ul>
+                                <li>Comprehensive Services</li>
+                                <li>Advanced Technology</li>
+                                <li>Transparent Communication</li>
+                            </ul>
+                        </div>
+                        <!-- About Content Body End -->
+
+                        <!-- About Content Footer Start -->
+                        <div class="about-us-content-footer wow fadeInUp" data-wow-delay="0.75s">
+                            <div class="about-us-footer-btn">
+                                <a href="contact.html" class="btn-default">get free quote</a>
+                            </div>
+                            <div class="about-us-contact-support">
+                                <div class="icon-box">
+                                    <img src="images/icon-phone.svg" alt="">
+                                </div>
+                                <div class="about-us-support-content">
+                                    <p>Call Support</p>
+                                    <h3>+91 8855029022</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- About Content Footer End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page About Us End -->
+
+	<!-- Our Company History Start -->
+	<div class="our-company-history">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<!-- Company History Image Start -->
+					<div class="company-history-image">
+						<div class="company-history-img">
+							<figure class="image-anime reveal">
+								<img src="images/company-history-img.png" alt="">
+							</figure>
+						</div>
+
+						<!-- Company Experience Box Start -->
+						<div class="company-experience">
+							<div class="company-experience-content">
+								<h3><span class="counter">10</span>+</h3>
+								<p>projects accomplished</p>
+							</div>
+						</div>
+						<!-- Company Experience Box End -->
+					</div>
+					<!-- Company History Image End -->
+				</div>
+
+				<div class="col-lg-6">
+					<div class="company-history-content">
+						<!-- Section Title Start -->
+						<div class="section-title">
+							<h3 class="wow fadeInUp">our key feature</h3>
+							<h2 class="text-anime-style-3" data-cursor="-opaque">Crafting metals that last a lifetime</h2>
+						</div>
+						<!-- Section Title End -->
+
+						<!-- Company History Body Start -->
+						<div class="company-history-body">
+							<p class="wow fadeInUp" data-wow-delay="0.25s">At ASB Engineering Services, we specialize in delivering high-quality steel products, racks, industrial and commercial furniture, precision tubes, and advanced surface finishing solutions. With a strong focus on durability, precision engineering, and customer satisfaction, we combine modern manufacturing techniques with skilled craftsmanship to meet diverse industry needs. Our state-of-the-art facilities and strict quality control processes ensure that every product we deliver stands the test of time. Whether it's custom-designed racks or surface-treated steel components, ASB Engineering Services is your trusted partner for reliable, efficient, and cost-effective engineering solutions.</p>
+						</div>
+						<!-- Company History Body End -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Our Company History End -->
+
+	<!-- Our Mission Vision Start -->
+	<div class="our-mission-vision">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<!-- Mission Vision Item Start -->
+					<div class="mission-vision-item wow fadeInUp">
+						<!-- Icon Box Start -->
+						<div class="icon-box">
+							<img src="images/icon-our-mission.svg" alt="">
+						</div>
+						<!-- Icon Box End -->
+
+						<!-- Mission Vision Content Start -->
+						<div class="mission-vision-content">
+							<h3>OUR PURPOSE</h3>
+							<b>Why we exist</b>
+							<p>•To simplify and elevate the process of metal manufacturing for modern industries.</p>
+							<p>•To empower businesses with precision-built components that deliver real performance.</p>
+							<p>•To act as a reliable extension of our clients’ engineering, production, and procurement teams.</p>
+							<p>•To combine engineering expertise, commitment, and quality to drive lasting value.</p>
+							<p>•To build not just products—but long-term partnerships based on trust and reliability.</p>
+						</div>
+						<!-- Mission Vision Content End -->
+					</div>
+					<!-- Mission Vision Item End -->
+				</div>
+
+				<div class="col-lg-4">
+					<!-- Mission Vision Item Start -->
+					<div class="mission-vision-item wow fadeInUp" data-wow-delay="0.25s">
+						<!-- Icon Box Start -->
+						<div class="icon-box">
+							<img src="images/icon-our-vision.svg" alt="">
+						</div>
+						<!-- Icon Box End -->
+
+						<!-- Mission Vision Content Start -->
+						<div class="mission-vision-content">
+							<h3>OUR VISION</h3>
+							<b>Where We’re Headed</b>
+							<p>•To become a globally recognized brand in precision engineering and metal fabrication.</p>
+							<p>•To be known for our uncompromising quality, on-time delivery, and scalable manufacturing capabilities.</p>
+							<p>•To support industries across automotive, infrastructure, retail, and more with smart, dependable manufacturing solutions.</p>
+							<p>•To lead with innovation, efficiency, and a customer-first mindset.</p>
+							<p>•To build a legacy where ASB becomes the go-to partner for quality-driven product development.</p>
+						</div>
+						<!-- Mission Vision Content End -->
+					</div>
+					<!-- Mission Vision Item End -->
+				</div>
+
+				<div class="col-lg-4">
+					<!-- Mission Vision Item Start -->
+					<div class="mission-vision-item wow fadeInUp" data-wow-delay="0.5s">
+						<!-- Icon Box Start -->
+						<div class="icon-box">
+							<img src="images/icon-our-values.svg" alt="">
+						</div>
+						<!-- Icon Box End -->
+
+						<!-- Mission Vision Content Start -->
+						<div class="mission-vision-content">
+							<h3>OUR MISSION</h3>
+							<b>What Drives Us Daily</b>
+							<p>•To provide end-to-end metal manufacturing solutions, from prototyping to mass production.</p>
+							<p>•To deliver CNC, VMC, and sheet metal components with speed, precision, and consistency.</p>
+							<p>•To support every client with transparent communication, technical accuracy, and reliable service.</p>
+							<p>•To ensure strict quality checks, optimized timelines, and zero compromise on detail.</p>
+							<p>•To create a workplace and workflow built on excellence, teamwork, and continuous improvement.</p>
+						</div>
+						<!-- Mission Vision Content End -->
+					</div>
+					<!-- Mission Vision Item End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Our Mission Vision End -->
+
+	<!-- Intro Video Section Start -->
+	<div class="intro-video">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Intro Video Box Start -->
+					<div class="intro-video-box" data-cursor-text="Play">
+						<!-- Video Image Start -->
+						<div class="video-image">
+							<a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+								<figure class="image-anime">
+									<img src="images/video-bg.jpg" alt="">
+								</figure>
+							</a>
+						</div>
+						<!-- Video Image End -->
+
+						<!-- Video Play Button Start -->
+						<div class="video-play-button">
+							<a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+								<i class="fa-solid fa-play"></i>
+							</a>
+						</div>
+						<!-- Video Play Button End -->
+					</div>
+					<!-- Intro Video Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Intro Video Section End -->
+
+	<!-- What We Do Section Start -->
+	 <div class="what-we-do">
+		<div class="container">
+			<div class="row section-row">
+				<!-- Section Title Start -->
+				<div class="section-title">
+					<h3 class="wow fadeInUp">what we do</h3>
+					<h2 class="text-anime-style-3" data-cursor="-opaque">Building the future on a foundation of excellence</h2>
+					<p class="wow fadeInUp" data-wow-delay="0.25s">We specialize in the manufacturing of a wide range of steel products and steel strucutres for various applications. From initial design to final fabrication, we work closely with our clients to understand their unique needs and vision. Our expertise allows us to create custom solutions that are not only durable and functional but also aesthetically pleasing, catering to both industrial and commercial requirements.</p>
+				</div>
+				<!-- Section Title End -->
+			</div>
+		</div>
+	 </div>
+	<!-- What We Do Section End -->
+
+	<!-- Cta Box Section Start -->
+	<div class="cta-box">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7 col-md-8">
+					<!-- Section Title Start -->
+					<div class="section-title">
+						<h2 class="text-anime-style-3" data-cursor="-opaque">Let's bulid something great together!</h2>
+						<p class="wow fadeInUp">Stop waiting to scale your production. Collaborate with ASB Engineering Services and experience world-class manufacturing solutions designed for excellence.</p>
+					</div>
+					<!-- Section Title End -->
+
+					<!-- Section Btn Start -->
+					<div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
+						<a href="contact.html" class="btn-default btn-large">get free quote</a>
+					</div>
+					<!-- Section Btn End -->
+				</div>
+
+				<div class="col-lg-5 col-md-4">
+					<!-- Cta Box Image Start -->
+					<div class="cta-box-image">
+						<figure>
+							<img src="images/cta-box-img.png" alt="">
+						</figure>
+					</div>
+					<!-- Cta Box Image End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Cta Box Section End -->
+
+	<!-- Our Team Start -->
+	<div class="our-team">
+		<div class="container">
+			<div class="row section-row">
+				<!-- Section Title Start -->
+				<div class="section-title">
+					<h3 class="wow fadeInUp">Message</h3>
+					<h2 class="text-anime-style-3" data-cursor="-opaque">Our Founder's Message</h2>
+				</div>
+				<!-- Section Title End -->
+			</div>
+
+			<!-- <div class="row align-items-center">
+				<div class="col-lg-4 col-md-6">
+					 Team Member Item Start -->
+					<!-- <div class="team-member-item wow fadeInUp" data-wow-delay="0.25s">  -->
+						<!-- Team Image Start -->
+						<!-- <div class="team-image">
+							<figure class="image-anime">
+								<img src="images/team-1.jpg" alt="">
+							</figure>
+						</div> -->
+						<!-- Team Image End -->
+
+						<!-- Team Body Start -->
+						<!-- <div class="team-body"> -->
+							<!-- Team content Start -->
+							<!-- <div class="team-content">
+								 <h3>benjamin miller</h3>
+								<p>project manager</p> -->
+							<!-- </div>  -->
+							<!-- Team content End -->
+
+							<!-- Team Social Icon Start -->
+							<!-- <div class="team-social-icon"> -->
+								<!-- <ul>
+									<li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
+									<li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
+									<li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
+								</ul> -->
+							<!-- </div> -->
+							<!-- Team Social Icon End -->
+						<!-- </div> -->
+						<!-- Team Body End -->
+					<!-- </div> -->
+					<!-- Team Member Item End -->
+				</div>
+
+				<!-- Founder message column inserted on the right -->
+				<div class="col-lg-12">
+					<div class="founder-message p-5 wow fadeInUp position-relative" data-wow-delay="0.25s" style="border: 2px solid #5eaedc; border-radius: 20px; max-width: 900px; margin: 0 auto;">
+						<!-- Quote Icon Top Right -->
+						<div style="position: absolute; top: 10px; right: 30px; font-size: 48px; color: #5eaedc; opacity: 0.3;">
+							<i class="fas fa-quote-right"></i>
+						</div>
+						
+						<blockquote class="text-anime-style-3 text-center">
+							<h4 style="font-style: italic; color: #1a1a1a;">Engineering has always been more than just a profession for me — it has been a way of thinking, building, and creating impact.</h4>
+						</blockquote>	
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 20px auto;">From my early days as a Formula Student engineer and Chassis Lead, I learned the discipline of design, precision, and teamwork. Those experiences shaped my passion for engineering and pushed me to transform ideas into reality. With that foundation, I started ASB Engineering Services with a clear goal — to deliver world-class engineering and manufacturing solutions that solve real industry challenges.</p>
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 20px auto;">Our journey began with small projects, but with consistency and commitment, we have earned the trust of leading organizations, including TATA and Raychem RPG. Today, ASB Engineering Services provides a wide spectrum of solutions — from sheet metal fabrication and CNC machining to custom assemblies and industrial HVAC products. What sets us apart is our ability to combine technical depth, precision-driven processes, and customer-focused execution.</p>
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 20px auto;">At ASB, we believe that engineering must go beyond production — it must create value, efficiency, and progress. Every component we deliver reflects our core values: accuracy, reliability, and innovation.</p>
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 20px auto;">But this is just the beginning. My vision is to build ASB into a globally recognized engineering powerhouse, expanding our capabilities, scaling into new industries, and setting benchmarks in quality and innovation. Beyond business, I aim to inspire young engineers and ambitious entrepreneurs, empowering them to shape their own futures through engineering and enterprise.</p>
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 20px auto;">I welcome you to explore ASB Engineering Services and partner with us in building solutions that last, products that perform, and innovations that inspire.</p>
+						<p class="wow fade-in-up text-center" style="max-width: 800px; margin: 30px auto 0; font-weight: 600; color: #1a1a1a;">– Aniket Barkade<br>
+						Founder & Managing Director <br>
+						ASB Engineering Services</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+	<!-- Our Team End -->
+
+    <!-- Contact Us Section Start -->
+    
+    <!-- Contact Us Section End -->
+
+    <!-- Footer Start -->
+	<footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            <figure>
+								<a href="index.html">
+									<img src="images/asb-logo.png" alt="">
+								</a>
+                                
+                            </figure>
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- Footer Content Start -->
+                        <div class="footer-content">
+                            <p>Our manufacturing services provide lasting assurance, demonstrating our continued commitment to you even after project completion.</p>
+                        </div>
+                        <!-- Footer Content End -->
+                    </div>
+
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Quick Links Start -->
+                    <div class="footer-links">
+                        <h3>our services</h3>
+                        <ul>                            
+                            <li><a href="contract-manufacturing.html">Contract Manufacturing</a></li>
+                            <li><a href="assembly.html">Assembly</a></li>
+                            <li><a href="pipe-tube-processing.html">Pipe and Tube Processing</a></li>
+                            <li><a href="stamping.html">Stamping</a></li>
+                            <li><a href="sheet-metal-fabrication.html">Sheet Metal Fabrication</a></li>
+                            <li><a href="laser-cutting.html">Laser Cutting</a></li>
+                            <li><a href="cnc-vmc-turnings.html">CNC & VMC Turnings</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Quick Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Links Start -->
+                    <div class="footer-links">
+                        <h3>company</h3>
+                        <ul>
+                            <li><a href="about.html">about us</a></li>
+                            <li><a href="contract-manufacturing.html">services</a></li>
+                            <li><a href="blog.html">blog</a></li>
+                            <li><a href="project.html">projects</a></li>
+                            <li><a href="contact.html">contact us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Links End -->
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12">
+                    <!-- Footer Contact Info Box Start -->
+                    <div class="footer-links footer-contact-box">
+                        <h3>contact us</h3>
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-phone.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>+91 8855029022</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-mail.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>asb.eng.services@gmail.com</p>
+                        </div>
+                        <!-- Info Box End -->
+
+                        <!-- Info Box Start -->
+                        <div class="footer-info-box">
+                            <!-- Icon Box Start -->
+                            <div class="icon-box">
+                                <img src="images/icon-location.svg" alt="">
+                            </div>
+                            <!-- Icon Box End -->
+                            <p>K/S/2, Evershine Empire, 100 feet Ambadi road, Vasai West, dist. Palghar, Maharashtra, India. 401202</p>
+                        </div>
+                        <!-- Info Box End -->
+                    </div>
+                    <!-- Footer Contact Info Box End -->
+                </div>
+            </div>
+
+            <!-- Footer Copyright Section Start -->
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-7">
+                        <!-- Footer Copyright Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 ASB Engineering Services. All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-5">
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.instagram.com/asb.eng.services?igsh=aG12aTdmZWY1c250&utm_source=qr" target="blank"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/asb-engineering-services/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyright Section End -->
+        </div>
+	</footer>
+	<!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+</body>
+
+</html>
