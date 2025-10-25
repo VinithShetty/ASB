@@ -109,11 +109,11 @@
     </FilesMatch>
     
     # Don't cache dynamic files
-    <FilesMatch "\.(php|cgi|pl)$">
-        Header set Cache-Control "no-cache, no-store, must-revalidate"
-        Header set Pragma "no-cache"
-        Header set Expires 0
-    </FilesMatch>
+    # <FilesMatch "\.(php|cgi|pl)$">
+    #     Header set Cache-Control "no-cache, no-store, must-revalidate"
+    #     Header set Pragma "no-cache"
+    #     Header set Expires 0
+    # </FilesMatch>
     
     # Security Headers
     Header always set X-Content-Type-Options "nosniff"
