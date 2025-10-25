@@ -1,0 +1,49 @@
+# robots.txt for ASB Engineering Services
+# https://www.asbengineering.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Disallow duplicate content and parameter URLs
+Disallow: /*?*
+Disallow: /*&
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+
+# Allow specific bots full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.asbengineering.com/sitemap.xml
