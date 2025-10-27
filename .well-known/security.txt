@@ -1,0 +1,23 @@
+# Security Policy for ASB Engineering Services
+# This file provides security contact information for responsible disclosure
+
+Contact: mailto:asb.eng.services@gmail.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.asbengineering.com/.well-known/security.txt
+
+# Security Policy
+Policy: https://www.asbengineering.com/security-policy.html
+
+# Acknowledgments
+Acknowledgments: https://www.asbengineering.com/security-acknowledgments.html
+
+# Encryption
+# If you have a PGP key, add it here:
+# Encryption: https://www.asbengineering.com/pgp-key.txt
+
+# Hiring
+# Hiring: https://www.asbengineering.com/careers.html
+
+# Please report security vulnerabilities responsibly.
+# We appreciate your efforts to improve our security.

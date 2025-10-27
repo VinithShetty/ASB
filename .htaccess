@@ -126,16 +126,40 @@
     Header always unset X-Powered-By
 </IfModule>
 
-# Security Settings
+# Advanced Security Settings
 <IfModule mod_headers.c>
+    # Content Security Policy - Prevent XSS, clickjacking, and code injection
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; img-src 'self' data: https: http:; frame-src 'self' https://www.google.com; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'; upgrade-insecure-requests;"
+    
     # Prevent clickjacking
-    Header always append X-Frame-Options SAMEORIGIN
+    Header always set X-Frame-Options "SAMEORIGIN"
     
     # Prevent MIME type sniffing
-    Header always set X-Content-Type-Options nosniff
+    Header always set X-Content-Type-Options "nosniff"
     
     # Enable XSS protection
     Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy (Feature Policy)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), fullscreen=(self)"
+    
+    # Strict Transport Security (HSTS) - Enable after SSL is installed
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Expect-CT (Certificate Transparency)
+    # Header always set Expect-CT "max-age=86400, enforce"
+</IfModule>
+
+# Prevent Hotlinking (bandwidth theft)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?asbengineering\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?bing\.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp|svg|pdf|mp4)$ - [F,NC]
 </IfModule>
 
 # Disable Directory Browsing
@@ -144,8 +168,33 @@ Options -Indexes
 # Disable Server Signature
 ServerSignature Off
 
-# Protect htaccess file
+# Protect htaccess and other sensitive files
 <Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .git>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files composer.json>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files package.json>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files README.md>
     Order allow,deny
     Deny from all
 </Files>
@@ -156,11 +205,65 @@ ServerSignature Off
     Deny from all
 </Files>
 
-# Block access to sensitive files
+# Block access to sensitive files and backup files
 <FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block suspicious request methods
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK|DEBUG) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# Block SQL Injection attempts
+<IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} proc/self/environ [NC,OR]
+    RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|\%3D) [OR]
+    RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [NC,OR]
+    RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} (\<|%3C).*iframe.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} (<|%3C)([^e]*e)+mbed.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} union.*select.*\( [NC,OR]
+    RewriteCond %{QUERY_STRING} union.*all.*select.* [NC,OR]
+    RewriteCond %{QUERY_STRING} (;|<|>|'|"|\)|%0A|%0D|%22|%27|%3C|%3E|%00).*(/\*|union|select|insert|drop|delete|update|cast|create|char|convert|alter|declare|order|script|set|md5|benchmark|encode) [NC,OR]
+    RewriteCond %{QUERY_STRING} (sp_executesql) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# Block malicious User Agents
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^(-|.*libwww-perl.*|.*python.*|.*nikto.*|.*curl.*|.*java.*|.*winhttp.*|.*HTTrack.*|.*harvest.*|.*extract.*|.*grab.*|.*suck.*|.*reaper.*|.*leech.*) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# Block suspicious IPs (add malicious IPs as needed)
+# <RequireAll>
+#     Require all granted
+#     Require not ip 123.456.789.0
+#     Require not ip 98.765.432.0
+# </RequireAll>
+
+# Rate Limiting (requires mod_evasive or similar)
+# This helps prevent DDoS attacks
+<IfModule mod_evasive20.c>
+    DOSHashTableSize 3097
+    DOSPageCount 5
+    DOSSiteCount 100
+    DOSPageInterval 1
+    DOSSiteInterval 1
+    DOSBlockingPeriod 60
+</IfModule>
 
 # Custom Error Pages (create these pages if needed)
 ErrorDocument 404 /404.html

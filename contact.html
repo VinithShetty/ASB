@@ -220,6 +220,9 @@
                         <!-- Section Title End -->
                          
                         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-toggle="validator">
+                            <!-- Honeypot field for bot protection (hidden from users) -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                            
                             <div class="row">
                                 <div class="form-group col-md-6 mb-3">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your name" required>
@@ -245,6 +248,12 @@
                                     <textarea name="message" class="form-control" id="msg" rows="3" placeholder="Message" required></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
+                    
+                                <!-- hCaptcha Widget (Optional - Uncomment to enable) -->
+                                <!-- Get your site key from: https://www.hcaptcha.com -->
+                                <!-- <div class="form-group col-md-12 mb-3">
+                                    <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
+                                </div> -->
                     
                                 <div class="col-md-12">
                                     <button type="submit" class="btn-default">submit</button>
@@ -448,6 +457,8 @@
     <script src="js/SmoothScroll.js"></script>
     <!-- Parallax js -->
     <script src="js/parallaxie.js"></script>
+    <!-- hCaptcha Script (Optional - Uncomment to enable) -->
+    <!-- <script src="https://js.hcaptcha.com/1/api.js" async defer></script> -->
     <!-- MagicCursor js file -->
     <script src="js/gsap.min.js"></script>
     <script src="js/magiccursor.js"></script>
