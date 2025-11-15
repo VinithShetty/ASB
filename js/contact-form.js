@@ -85,7 +85,7 @@
             formData.append("access_key", "71b322c8-70b0-46e2-8888-60641b459f50");
             
             // Add recipient email
-            formData.append("email_to", "asb.eng.services@gmail.com");
+            formData.append("email_to", "sales@asbengineeringservices.com");
             
             // Add subject prefix
             formData.append("subject", "New Contact Form Submission - " + formData.get("subject"));

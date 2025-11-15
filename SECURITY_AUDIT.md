@@ -236,12 +236,12 @@ Blocks patterns:
 ## 📞 SECURITY CONTACT
 
 **Responsible Disclosure:**
-- Email: asb.eng.services@gmail.com
+- Email: sales@asbengineeringservices.com
 - Security Policy: /.well-known/security.txt
 - Response Time: 24-48 hours
 
 **For Security Emergencies:**
-1. Contact: asb.eng.services@gmail.com
+1. Contact: sales@asbengineeringservices.com
 2. Subject: "[SECURITY URGENT]"
 3. Include: Details of vulnerability/incident
 

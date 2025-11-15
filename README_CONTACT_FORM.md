@@ -60,7 +60,7 @@ This folder contains comprehensive documentation for your contact form:
 
 1. **Get Access Key:**
    - Go to https://web3forms.com
-   - Sign up with: `asb.eng.services@gmail.com`
+   - Sign up with: `sales@asbengineeringservices.com`
    - Create form and copy access key
 
 2. **Update Code:**
@@ -114,7 +114,7 @@ js/contact-form-php.js   # PHP version (not needed)
 - **message** - Message content
 
 ### Email Settings:
-- **Recipient:** `asb.eng.services@gmail.com`
+- **Recipient:** `sales@asbengineeringservices.com`
 - **Subject:** "New Contact Form Submission - [User Subject]"
 - **From:** ASB Engineering Website <noreply@web3forms.com>
 - **Reply-To:** [User Email]
@@ -128,7 +128,7 @@ js/contact-form-php.js   # PHP version (not needed)
 ## ✅ What Works Now
 
 - ✅ Simple form submission
-- ✅ Email notifications to `asb.eng.services@gmail.com`
+- ✅ Email notifications to `sales@asbengineeringservices.com`
 - ✅ Automatic reply-to configuration
 - ✅ Success/error messages
 - ✅ Form validation
@@ -338,7 +338,7 @@ Track these to measure form success:
 ## 📞 Contact Information
 
 **ASB Engineering Services**
-- Email: asb.eng.services@gmail.com
+- Email: sales@asbengineeringservices.com
 - Phone: +91 8855029022
 - Location: K/S/2, Evershine Empire, 100 feet Ambadi road, Vasai West, dist. Palghar, Maharashtra, India. 401202
 

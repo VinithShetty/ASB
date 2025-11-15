@@ -23,13 +23,13 @@ This contact form uses **Web3Forms** - a free, secure form backend service that 
 
 2. **Create Free Account**
    - Click "Get Started Free" or "Sign Up"
-   - Enter your email address: `asb.eng.services@gmail.com`
+   - Enter your email address: `sales@asbengineeringservices.com`
    - Verify your email
 
 3. **Create New Form**
    - After login, click "Create New Form"
    - Enter form name: "ASB Engineering Contact Form"
-   - Set recipient email: `asb.eng.services@gmail.com`
+   - Set recipient email: `sales@asbengineeringservices.com`
    - Click "Create Form"
 
 4. **Copy Access Key**
@@ -61,7 +61,7 @@ This contact form uses **Web3Forms** - a free, secure form backend service that 
    - Subject: Test Submission
    - Message: This is a test message
 4. **Click Submit**
-5. **Check your email** (`asb.eng.services@gmail.com`) for the form submission
+5. **Check your email** (`sales@asbengineeringservices.com`) for the form submission
 
 ---
 

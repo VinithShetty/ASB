@@ -9,11 +9,11 @@
 ### Go to: https://web3forms.com
 
 1. Click **"Get Started Free"**
-2. Enter email: `asb.eng.services@gmail.com`
+2. Enter email: `sales@asbengineeringservices.com`
 3. Verify your email (check inbox)
 4. Click **"Create New Form"**
 5. Form name: `ASB Contact Form`
-6. Recipient: `asb.eng.services@gmail.com`
+6. Recipient: `sales@asbengineeringservices.com`
 7. Click **"Create"**
 8. **COPY the Access Key** (looks like: `a1b2c3d4-e5f6-7890-abcd-1234567890ab`)
 
@@ -49,7 +49,7 @@ formData.append("access_key", "a1b2c3d4-e5f6-7890-abcd-1234567890ab");
    - Message: `Testing the contact form`
 4. Click **"Submit"**
 5. ✅ You should see: "Thank you! Your message has been sent successfully."
-6. ✅ Check email inbox: `asb.eng.services@gmail.com`
+6. ✅ Check email inbox: `sales@asbengineeringservices.com`
 
 ---
 

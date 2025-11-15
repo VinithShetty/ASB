@@ -12,7 +12,7 @@ Use this checklist to ensure your contact form is working perfectly with Web3For
 - [ ] Web3Forms account created
 - [ ] Access key obtained from dashboard
 - [ ] Access key added to `js/contact-form.js` (line 19)
-- [ ] Recipient email verified: `asb.eng.services@gmail.com`
+- [ ] Recipient email verified: `sales@asbengineeringservices.com`
 - [ ] Form action updated to Web3Forms API
 
 ### 2. Code Review
@@ -43,7 +43,7 @@ Use this checklist to ensure your contact form is working perfectly with Web3For
 - [ ] Success message appears
 - [ ] Form fields are cleared
 - [ ] Button returns to normal state
-- [ ] Email received at `asb.eng.services@gmail.com`
+- [ ] Email received at `sales@asbengineeringservices.com`
 
 **Status:** ⬜ Pass / ⬜ Fail
 
@@ -62,7 +62,7 @@ Use this checklist to ensure your contact form is working perfectly with Web3For
 ```
 From: ASB Engineering Website <noreply@web3forms.com>
 Reply-To: test@example.com
-To: asb.eng.services@gmail.com
+To: sales@asbengineeringservices.com
 Subject: New Contact Form Submission - Test Submission
 
 Name: Test User

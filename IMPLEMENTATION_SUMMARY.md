@@ -59,7 +59,7 @@ formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
 
 ### How to get the key:
 1. Visit: https://web3forms.com
-2. Sign up with: `asb.eng.services@gmail.com`
+2. Sign up with: `sales@asbengineeringservices.com`
 3. Create a new form
 4. Copy the Access Key
 5. Paste it in `js/contact-form.js` line 19
@@ -107,7 +107,7 @@ formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
 | Message | `message` | textarea | Yes |
 
 ### Email Settings:
-- **To:** asb.eng.services@gmail.com
+- **To:** sales@asbengineeringservices.com
 - **From:** ASB Engineering Website <noreply@web3forms.com>
 - **Reply-To:** [User's email from form]
 - **Subject:** New Contact Form Submission - [User's subject]
@@ -232,7 +232,7 @@ formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
 
 ### Required Testing (After Adding Access Key):
 - [ ] Form submission works
-- [ ] Email received at asb.eng.services@gmail.com
+- [ ] Email received at sales@asbengineeringservices.com
 - [ ] Success message displays
 - [ ] Form clears after submission
 - [ ] Reply-to address is correct
@@ -422,7 +422,7 @@ Your contact form is **99% complete**. Just add your Web3Forms access key and yo
 ## 📞 Your Contact Information
 
 **ASB Engineering Services**
-- **Email:** asb.eng.services@gmail.com
+- **Email:** sales@asbengineeringservices.com
 - **Phone:** +91 8855029022
 - **Website:** [Your Domain]
 - **Location:** Vasai West, Maharashtra, India

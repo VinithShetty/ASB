@@ -1,7 +1,7 @@
 # Security Policy for ASB Engineering Services
 # This file provides security contact information for responsible disclosure
 
-Contact: mailto:asb.eng.services@gmail.com
+Contact: mailto:sales@asbengineeringservices.com
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: en
 Canonical: https://www.asbengineering.com/.well-known/security.txt

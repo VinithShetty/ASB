@@ -268,7 +268,7 @@ Try accessing:
 ## 📞 SUPPORT & HELP
 
 ### If You Need Help:
-- **Email:** asb.eng.services@gmail.com
+- **Email:** sales@asbengineeringservices.com
 - **Security Issues:** Report via security.txt
 - **Documentation:** Read SECURITY.md for detailed guide
 
@@ -400,4 +400,4 @@ Security Score:    86/100 (EXCELLENT)
 
 ---
 
-*For questions or support, contact: asb.eng.services@gmail.com*
+*For questions or support, contact: sales@asbengineeringservices.com*

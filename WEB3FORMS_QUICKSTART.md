@@ -4,7 +4,7 @@
 
 ### Step 1: Get Access Key
 1. Go to: https://web3forms.com
-2. Sign up with: `asb.eng.services@gmail.com`
+2. Sign up with: `sales@asbengineeringservices.com`
 3. Create form → Copy Access Key
 
 ### Step 2: Update Code
@@ -56,7 +56,7 @@ formData.append("access_key", "a1b2c3d4-e5f6-7890-abcd-1234567890ab");
 
 ### Email Recipient:
 ```javascript
-formData.append("email_to", "asb.eng.services@gmail.com");
+formData.append("email_to", "sales@asbengineeringservices.com");
 ```
 
 ### Subject Line:

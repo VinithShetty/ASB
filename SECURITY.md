@@ -341,7 +341,7 @@ To enable hCaptcha:
    - Train team on security awareness
 
 ### Emergency Contacts:
-- **Technical Support:** asb.eng.services@gmail.com
+- **Technical Support:** sales@asbengineeringservices.com
 - **Hosting Provider:** [Your hosting provider's emergency contact]
 - **Security Researcher Contact:** security.txt file in .well-known/
 
@@ -497,7 +497,7 @@ If you add file upload functionality:
 ## 📞 Support & Questions
 
 For security-related questions or to report vulnerabilities:
-- **Email:** asb.eng.services@gmail.com
+- **Email:** sales@asbengineeringservices.com
 - **Security Policy:** /.well-known/security.txt
 - **Response Time:** Within 24-48 hours
 

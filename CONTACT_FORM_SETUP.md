@@ -1,6 +1,6 @@
 # Contact Form Setup Guide
 
-This guide will help you set up the contact form to send emails to asb.eng.services@gmail.com.
+This guide will help you set up the contact form to send emails to sales@asbengineeringservices.com.
 
 ## Two Methods Available
 
@@ -17,7 +17,7 @@ EmailJS is a service that allows you to send emails directly from JavaScript wit
 2. **Add Email Service**
    - After logging in, go to "Email Services"
    - Click "Add New Service"
-   - Select "Gmail" and connect your Gmail account (asb.eng.services@gmail.com)
+   - Select "Gmail" and connect your Gmail account (sales@asbengineeringservices.com)
    - Copy the **Service ID** (you'll need this)
 
 3. **Create Email Template**
@@ -58,7 +58,7 @@ EmailJS is a service that allows you to send emails directly from JavaScript wit
    - Open your website in a browser
    - Fill out the contact form
    - Click Submit
-   - Check asb.eng.services@gmail.com for the email
+   - Check sales@asbengineeringservices.com for the email
 
 #### EmailJS Free Tier Limits:
 - 200 emails per month
@@ -99,7 +99,7 @@ If you have PHP hosting, you can use the PHP backend method.
    - Open your website in a browser
    - Fill out the contact form
    - Click Submit
-   - Check asb.eng.services@gmail.com for the email
+   - Check sales@asbengineeringservices.com for the email
 
 #### Important Notes for PHP Method:
 - Requires PHP hosting with mail() function enabled

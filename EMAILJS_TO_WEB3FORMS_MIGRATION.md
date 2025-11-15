@@ -40,7 +40,7 @@ emailjs.send('service_15tg23b', 'template_fq9c5mn', {
     phone: formData.phone,
     subject: formData.subject,
     message: formData.message,
-    to_email: 'asb.eng.services@gmail.com'
+    to_email: 'sales@asbengineeringservices.com'
 });
 ```
 
