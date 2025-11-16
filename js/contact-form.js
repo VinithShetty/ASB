@@ -2,25 +2,27 @@
 (function() {
     'use strict';
 
-    // Get the form element
     const contactForm = document.getElementById('contactForm');
-    
-    // Rate limiting variables
     const RATE_LIMIT_STORAGE_KEY = 'contactFormLastSubmit';
-    const RATE_LIMIT_MINUTES = 5; // Minimum minutes between submissions
-    
+    const RATE_LIMIT_MINUTES = 5;
+
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Check honeypot field (bot protection)
+
+            // Ensure honeypot exists & is empty (Web3Forms expects it present and empty)
             const botcheck = contactForm.querySelector('input[name="botcheck"]');
+            if (botcheck) {
+                botcheck.value = ''; // IMPORTANT: keep the field but force it empty
+            }
+
+            // If botcheck had a value, it's a bot — silently stop
             if (botcheck && botcheck.value !== '') {
                 console.log('Bot detected - honeypot triggered');
-                return; // Silent fail for bots
+                return;
             }
-            
-            // Rate limiting check
+
+            // Rate limiting
             const lastSubmitTime = localStorage.getItem(RATE_LIMIT_STORAGE_KEY);
             if (lastSubmitTime) {
                 const minutesSinceLastSubmit = (Date.now() - parseInt(lastSubmitTime)) / 1000 / 60;
@@ -29,109 +31,97 @@
                     msgSubmit.className = 'h3 text-warning';
                     msgSubmit.innerHTML = `Please wait ${Math.ceil(RATE_LIMIT_MINUTES - minutesSinceLastSubmit)} more minute(s) before submitting again.`;
                     msgSubmit.classList.remove('hidden');
-                    
-                    setTimeout(function() {
-                        msgSubmit.classList.add('hidden');
-                    }, 5000);
-                    
+                    setTimeout(() => msgSubmit.classList.add('hidden'), 5000);
                     return;
                 }
             }
-            
-            // Sanitize and validate input fields
+
+            // Sanitize + validate
             const name = sanitizeInput(contactForm.querySelector('#name').value.trim());
             const email = sanitizeInput(contactForm.querySelector('#email').value.trim());
             const phone = sanitizeInput(contactForm.querySelector('#phone').value.trim());
             const subject = sanitizeInput(contactForm.querySelector('#subject').value.trim());
             const message = sanitizeInput(contactForm.querySelector('#msg').value.trim());
-            
-            // Check if all fields are filled
+
             if (!name || !email || !phone || !subject || !message) {
                 showMessage('error', 'Please fill in all required fields.');
                 return;
             }
-            
-            // Validate email format
+
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showMessage('error', 'Please enter a valid email address.');
                 return;
             }
-            
-            // Validate phone number (basic validation)
+
             const phoneRegex = /^[0-9+\-\s()]{10,}$/;
             if (!phoneRegex.test(phone)) {
                 showMessage('error', 'Please enter a valid phone number.');
                 return;
             }
-            
-            // Check for suspicious content (XSS prevention)
-            if (containsSuspiciousContent(name) || containsSuspiciousContent(email) || 
+
+            if (containsSuspiciousContent(name) || containsSuspiciousContent(email) ||
                 containsSuspiciousContent(subject) || containsSuspiciousContent(message)) {
                 showMessage('error', 'Invalid input detected. Please remove special characters.');
                 return;
             }
-            
-            // Show loading state
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Sending...';
             submitBtn.disabled = true;
-            
-            // Create FormData object from the form
+
+            // Build FormData
+            // Make sure botcheck exists in the DOM and is empty. Keep it in the payload.
             const formData = new FormData(contactForm);
-            
-            // Add the Web3Forms access key
-            formData.append("access_key", "71b322c8-70b0-46e2-8888-60641b459f50");
-            
-            // Add recipient email
-            formData.append("email_to", "sales@asbengineeringservices.com");
-            
-            // Add subject prefix
-            formData.append("subject", "New Contact Form Submission - " + formData.get("subject"));
-            
-            // Remove botcheck from formData (it's only for client-side bot detection)
-            formData.delete("botcheck");
-            
+
+            // Force empty honeypot explicitly in FormData as well (safety)
+            if (formData.has('botcheck')) {
+                formData.set('botcheck', '');
+            } else {
+                formData.append('botcheck', '');
+            }
+
+            // REQUIRED: the Web3Forms access key. Keep secret ideally, but must be present.
+            formData.set('access_key', '71b322c8-70b0-46e2-8888-60641b459f50');
+
+            // Add recipient and nice subject
+            formData.set('email_to', 'sales@asbengineeringservices.com');
+            formData.set('subject', 'New Contact Form Submission - ' + (formData.get('subject') || subject));
+
             try {
-                // Send form data to Web3Forms
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
                     body: formData
                 });
-                
+
+                // Parse and log the full JSON response so we can see errors (helps debug)
                 const data = await response.json();
-                
-                if (data.success) {
-                    console.log('SUCCESS!', data);
-                    
-                    // Store submission time for rate limiting
+                console.log('Web3Forms response:', data, 'HTTP status:', response.status);
+
+                if (response.ok && data.success) {
                     localStorage.setItem(RATE_LIMIT_STORAGE_KEY, Date.now().toString());
-                    
-                    // Show success message
                     showMessage('success', 'Thank you! Your message has been sent successfully.');
-                    
-                    // Reset form
                     contactForm.reset();
-                    
-                    // Reset button
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
                 } else {
-                    throw new Error(data.message || 'Form submission failed');
+                    // If Web3Forms returns an error object, show the message (more helpful)
+                    const apiMsg = data && data.message ? data.message : 'Form submission failed';
+                    showMessage('error', 'Failed to send message: ' + apiMsg);
+                    console.error('Web3Forms error:', data);
                 }
+
             } catch (error) {
-                console.log('FAILED...', error);
-                showMessage('error', 'Oops! Something went wrong. Please try again.');
-                
-                // Reset button
+                console.error('Network/Unexpected error', error);
+                showMessage('error', 'Unexpected error. Check console.');
+            } finally {
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
+
         });
     }
-    
-    // Helper function to sanitize input (prevent XSS)
+
+    // --- helpers (same as yours) ---
     function sanitizeInput(str) {
         const div = document.createElement('div');
         div.textContent = str;
@@ -140,8 +130,7 @@
             .replace(/javascript:/gi, '')
             .replace(/on\w+=/gi, '');
     }
-    
-    // Helper function to detect suspicious content
+
     function containsSuspiciousContent(str) {
         const suspiciousPatterns = [
             /<script/i,
@@ -153,19 +142,14 @@
             /vbscript:/i,
             /data:text\/html/i
         ];
-        
         return suspiciousPatterns.some(pattern => pattern.test(str));
     }
-    
-    // Helper function to show messages
+
     function showMessage(type, text) {
         const msgSubmit = document.getElementById('msgSubmit');
         msgSubmit.className = 'h3 text-' + (type === 'success' ? 'success' : type === 'error' ? 'danger' : 'warning');
         msgSubmit.innerHTML = text;
         msgSubmit.classList.remove('hidden');
-        
-        setTimeout(function() {
-            msgSubmit.classList.add('hidden');
-        }, type === 'success' ? 5000 : 3000);
+        setTimeout(() => msgSubmit.classList.add('hidden'), type === 'success' ? 5000 : 3000);
     }
 })();
