@@ -15,7 +15,7 @@
             
             // Check honeypot field (bot protection)
             const botcheck = contactForm.querySelector('input[name="botcheck"]');
-            if (botcheck && botcheck.checked) {
+            if (botcheck && botcheck.value !== '') {
                 console.log('Bot detected - honeypot triggered');
                 return; // Silent fail for bots
             }
@@ -90,8 +90,8 @@
             // Add subject prefix
             formData.append("subject", "New Contact Form Submission - " + formData.get("subject"));
             
-            // Add bot check field to form data
-            formData.set("botcheck", botcheck ? botcheck.checked : false);
+            // Remove botcheck from formData (it's only for client-side bot detection)
+            formData.delete("botcheck");
             
             try {
                 // Send form data to Web3Forms

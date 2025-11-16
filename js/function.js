@@ -244,35 +244,36 @@
 	});
 
 	/* Contact form validation */
-	var $contactform = $("#contactForm");
-	$contactform.validator({focus: false}).on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {
-			event.preventDefault();
-			submitForm();
-		}
-	});
+	// Old PHP form handler disabled - now using Web3Forms in contact-form.js
+	// var $contactform = $("#contactForm");
+	// $contactform.validator({focus: false}).on("submit", function (event) {
+	// 	if (!event.isDefaultPrevented()) {
+	// 		event.preventDefault();
+	// 		submitForm();
+	// 	}
+	// });
 
-	function submitForm(){
-		/* Initiate Variables With Form Content*/
-		var fullname = $("#fullname").val();
-		var email = $("#email").val();
-		var phone = $("#phone").val();
-		var subject = $("#subject").val();
-		var message = $("#msg").val();
+	// function submitForm(){
+	// 	/* Initiate Variables With Form Content*/
+	// 	var fullname = $("#fullname").val();
+	// 	var email = $("#email").val();
+	// 	var phone = $("#phone").val();
+	// 	var subject = $("#subject").val();
+	// 	var message = $("#msg").val();
 
-		$.ajax({
-			type: "POST",
-			url: "form-process.php",
-			data: "fullname=" + fullname + "&name=" + "&email=" + email + "&phone=" + phone + "&subject=" + subject + "&message=" + message,
-			success : function(text){
-				if (text == "success"){
-					formSuccess();
-				} else {
-					submitMSG(false,text);
-				}
-			}
-		});
-	}
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: "form-process.php",
+	// 		data: "fullname=" + fullname + "&name=" + "&email=" + email + "&phone=" + phone + "&subject=" + subject + "&message=" + message,
+	// 		success : function(text){
+	// 			if (text == "success"){
+	// 				formSuccess();
+	// 			} else {
+	// 				submitMSG(false,text);
+	// 			}
+	// 		}
+	// 	});
+	// }
 
 	function formSuccess(){
 		$contactform[0].reset();
