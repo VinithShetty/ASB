@@ -218,48 +218,13 @@
                         </div>
                         <!-- Section Title End -->
                          
-                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-toggle="validator">
-                            <!-- Honeypot field for bot protection (hidden from users) -->
-                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                            
-                            <div class="row">
-                                <div class="form-group col-md-6 mb-3">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your name" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                    
-                                <div class="form-group col-md-6 mb-3">
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your email" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                    
-                                <div class="form-group col-md-6 mb-3">
-                                    <input type="tel" name="phone" class="form-control" id="phone" placeholder="Phone number" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                    
-                                <div class="form-group col-md-6 mb-3">
-                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                    
-                                <div class="form-group col-md-12 mb-4">
-                                    <textarea name="message" class="form-control" id="msg" rows="3" placeholder="Message" required></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                    
-                                <!-- hCaptcha Widget (Optional - Uncomment to enable) -->
-                                <!-- Get your site key from: https://www.hcaptcha.com -->
-                                <!-- <div class="form-group col-md-12 mb-3">
-                                    <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
-                                </div> -->
-                    
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn-default">submit</button>
-                                    <div id="msgSubmit" class="h3 hidden"></div>
-                                </div>
-                            </div>
-                        </form>
+                        <form action="https://api.web3forms.com/submit" method="POST">
+						  <input type="hidden" name="access_key" value="3b0894dc-df09-42c9-9e3a-5cc8b1d92223">
+						  <input type="text" name="name" required>
+						  <input type="email" name="email" required>
+						  <textarea name="message" required></textarea>
+						  <button type="submit">Submit</button>
+						</form>
                     </div>
                     <!-- Contact Form end -->
                 </div>
