@@ -125,7 +125,7 @@ Created comprehensive guides:
 2. **Option B: Manual Installation**
    ```bash
    # If your hosting supports Certbot
-   sudo certbot --apache -d asbengineering.com -d www.asbengineering.com
+   sudo certbot --apache -d asbengineering.com -d asbengineeringservices.com
    ```
 
 3. **After SSL is installed:**
@@ -332,7 +332,7 @@ Security Score:    86/100 (EXCELLENT)
 ║           🔒 SECURITY CERTIFICATION 🔒               ║
 ║                                                       ║
 ║   Website: ASB Engineering Services                  ║
-║   Domain:  www.asbengineering.com                    ║
+║   Domain:  asbengineeringservices.com                    ║
 ║                                                       ║
 ║   Security Level: ENTERPRISE-GRADE                   ║
 ║   Protection Status: ACTIVE                          ║

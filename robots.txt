@@ -1,5 +1,5 @@
 # robots.txt for ASB Engineering Services
-# https://www.asbengineering.com/robots.txt
+# https://asbengineeringservices.com/robots.txt
 
 User-agent: *
 Allow: /
@@ -46,4 +46,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://www.asbengineering.com/sitemap.xml
+Sitemap: https://asbengineeringservices.com/sitemap.xml

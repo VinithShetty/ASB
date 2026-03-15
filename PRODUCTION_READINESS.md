@@ -100,7 +100,7 @@
 ### 3. Before Going Live - Domain Configuration
 **Update all URLs** from placeholder to actual domain:
 ```
-Find: https://www.asbengineering.com
+Find: https://asbengineeringservices.com
 Replace with: YOUR_ACTUAL_DOMAIN
 ```
 
